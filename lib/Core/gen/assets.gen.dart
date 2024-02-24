@@ -13,7 +13,6 @@ class $AssetsFontsGen {
   const $AssetsFontsGen();
 
   $AssetsFontsInterfontsGen get interfonts => const $AssetsFontsInterfontsGen();
-  $AssetsFontsVazirfontsGen get vazirfonts => const $AssetsFontsVazirfontsGen();
 }
 
 class $AssetsImagesGen {
@@ -44,93 +43,17 @@ class $AssetsJsonimagesGen {
 class $AssetsFontsInterfontsGen {
   const $AssetsFontsInterfontsGen();
 
-  /// File path: assets/fonts/interfonts/Inter-Black.ttf
-  String get interBlack => 'assets/fonts/interfonts/Inter-Black.ttf';
-
   /// File path: assets/fonts/interfonts/Inter-Bold.ttf
   String get interBold => 'assets/fonts/interfonts/Inter-Bold.ttf';
-
-  /// File path: assets/fonts/interfonts/Inter-ExtraBold.ttf
-  String get interExtraBold => 'assets/fonts/interfonts/Inter-ExtraBold.ttf';
-
-  /// File path: assets/fonts/interfonts/Inter-ExtraLight.ttf
-  String get interExtraLight => 'assets/fonts/interfonts/Inter-ExtraLight.ttf';
-
-  /// File path: assets/fonts/interfonts/Inter-Light.ttf
-  String get interLight => 'assets/fonts/interfonts/Inter-Light.ttf';
 
   /// File path: assets/fonts/interfonts/Inter-Medium.ttf
   String get interMedium => 'assets/fonts/interfonts/Inter-Medium.ttf';
 
-  /// File path: assets/fonts/interfonts/Inter-Regular.ttf
-  String get interRegular => 'assets/fonts/interfonts/Inter-Regular.ttf';
-
   /// File path: assets/fonts/interfonts/Inter-SemiBold.ttf
   String get interSemiBold => 'assets/fonts/interfonts/Inter-SemiBold.ttf';
 
-  /// File path: assets/fonts/interfonts/Inter-Thin.ttf
-  String get interThin => 'assets/fonts/interfonts/Inter-Thin.ttf';
-
   /// List of all assets
-  List<String> get values => [
-        interBlack,
-        interBold,
-        interExtraBold,
-        interExtraLight,
-        interLight,
-        interMedium,
-        interRegular,
-        interSemiBold,
-        interThin
-      ];
-}
-
-class $AssetsFontsVazirfontsGen {
-  const $AssetsFontsVazirfontsGen();
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-Black.ttf
-  String get vazirmatnBlack => 'assets/fonts/vazirfonts/Vazirmatn-Black.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-Bold.ttf
-  String get vazirmatnBold => 'assets/fonts/vazirfonts/Vazirmatn-Bold.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-ExtraBold.ttf
-  String get vazirmatnExtraBold =>
-      'assets/fonts/vazirfonts/Vazirmatn-ExtraBold.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-ExtraLight.ttf
-  String get vazirmatnExtraLight =>
-      'assets/fonts/vazirfonts/Vazirmatn-ExtraLight.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-Light.ttf
-  String get vazirmatnLight => 'assets/fonts/vazirfonts/Vazirmatn-Light.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-Medium.ttf
-  String get vazirmatnMedium => 'assets/fonts/vazirfonts/Vazirmatn-Medium.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-Regular.ttf
-  String get vazirmatnRegular =>
-      'assets/fonts/vazirfonts/Vazirmatn-Regular.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-SemiBold.ttf
-  String get vazirmatnSemiBold =>
-      'assets/fonts/vazirfonts/Vazirmatn-SemiBold.ttf';
-
-  /// File path: assets/fonts/vazirfonts/Vazirmatn-Thin.ttf
-  String get vazirmatnThin => 'assets/fonts/vazirfonts/Vazirmatn-Thin.ttf';
-
-  /// List of all assets
-  List<String> get values => [
-        vazirmatnBlack,
-        vazirmatnBold,
-        vazirmatnExtraBold,
-        vazirmatnExtraLight,
-        vazirmatnLight,
-        vazirmatnMedium,
-        vazirmatnRegular,
-        vazirmatnSemiBold,
-        vazirmatnThin
-      ];
+  List<String> get values => [interBold, interMedium, interSemiBold];
 }
 
 class Assets {
