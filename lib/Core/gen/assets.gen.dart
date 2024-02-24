@@ -9,12 +9,6 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetsFontsGen {
-  const $AssetsFontsGen();
-
-  $AssetsFontsInterfontsGen get interfonts => const $AssetsFontsInterfontsGen();
-}
-
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -40,26 +34,9 @@ class $AssetsJsonimagesGen {
   List<String> get values => [animation1];
 }
 
-class $AssetsFontsInterfontsGen {
-  const $AssetsFontsInterfontsGen();
-
-  /// File path: assets/fonts/interfonts/Inter-Bold.ttf
-  String get interBold => 'assets/fonts/interfonts/Inter-Bold.ttf';
-
-  /// File path: assets/fonts/interfonts/Inter-Medium.ttf
-  String get interMedium => 'assets/fonts/interfonts/Inter-Medium.ttf';
-
-  /// File path: assets/fonts/interfonts/Inter-SemiBold.ttf
-  String get interSemiBold => 'assets/fonts/interfonts/Inter-SemiBold.ttf';
-
-  /// List of all assets
-  List<String> get values => [interBold, interMedium, interSemiBold];
-}
-
 class Assets {
   Assets._();
 
-  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsJsonimagesGen jsonimages = $AssetsJsonimagesGen();
 }
