@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppSize {
+  static double setFullsizeWidth = 0;
+  static double setFullsizeHeight = 0;
   static double textScaleFactor = 0;
-  static var fullSizeMediaQueryWidth;
-  static var fullSizeMediaQueryheight;
   static const double borderRadiusButton = 9;
   static const double borderRadiusBoxHistory = 12;
   static const double borderRadiusButtonShowHistory = 7;
@@ -11,15 +11,27 @@ class AppSize {
   static const double borderRadiusresultButton = 16;
   static const double textSizeBoldButtom = 26;
   static const double textSizeMedium = 16;
-  void setFullsizeWidth(BuildContext context) {
-    fullSizeMediaQueryWidth = MediaQuery.of(context).size.width;
+  static double appBarHeight = 0;
+  static double boardButtom = 0;
+  static double boardResult = 0;
+  // double setFullsizeWidth(BuildContext context) {
+  //   return MediaQuery.of(context).size.width;
+  // }
+
+  // double setFullsizeHeight(BuildContext context) {
+  //   return MediaQuery.of(context).size.height;
+  // }
+  void appSectionsPercent() {
+    appBarHeight = setFullsizeHeight * 0.06;
+    boardResult = setFullsizeHeight * (26.2 / 100);
+    boardButtom = setFullsizeHeight * (66.5 / 100);
   }
 
-  void setFullsizeHeight(BuildContext context) {
-    fullSizeMediaQueryheight = MediaQuery.of(context).size.height;
-  }
-
-  void init(BuildContext context) {
+  List<double> init(BuildContext context) {
     textScaleFactor = MediaQuery.of(context).textScaleFactor;
+    setFullsizeWidth = MediaQuery.of(context).size.width;
+    setFullsizeHeight = MediaQuery.of(context).size.height;
+    appSectionsPercent();
+    return [textScaleFactor, setFullsizeHeight, setFullsizeHeight];
   }
 }
