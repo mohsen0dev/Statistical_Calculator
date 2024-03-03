@@ -13,6 +13,6 @@ abstract class AppColors {
   static const Color gery3 = Color(0xff2E3A48);
   static const Color gery4 = Color(0xff5A6876);
   static const Color gery5 = Color(0xff828A93);
-  static const Color gery6 = Color(0xffEAEBED);
+  static const Color gery6 = Color(0xe0EAEBED);
   static const Color gery7 = Color(0xffFFFFFF);
 }

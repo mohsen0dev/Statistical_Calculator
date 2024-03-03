@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppSize().init(context);
+    AppSize().appSectionsPercent();
     return GetMaterialApp(
       locale: const Locale('fa'),
       title: 'Statistical Calculator',
