@@ -1,3 +1,0 @@
-class SplashView {
-  //empty class
-}

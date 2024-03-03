@@ -4,3 +4,4 @@ import 'package:simple_statistical_calculator/Core/constants/my_app.dart';
 void main() {
   runApp(MyApp());
 }
+        

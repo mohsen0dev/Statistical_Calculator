@@ -11,6 +11,7 @@ class AppSize {
   static const double borderRadiusresultButton = 16;
   static const double textSizeBoldButtom = 26;
   static const double textSizeMedium = 16;
+  static const double dividerGeradientHeight=10;
   static double appBarHeight = 0;
   static double boardButtom = 0;
   static double boardResult = 0;
@@ -22,8 +23,8 @@ class AppSize {
   //   return MediaQuery.of(context).size.height;
   // }
   void appSectionsPercent() {
-    appBarHeight = setFullsizeHeight * 0.06;
-    boardResult = setFullsizeHeight * (26.2 / 100);
+    appBarHeight = setFullsizeHeight * 0.091;
+    boardResult = setFullsizeHeight * (23.1 / 100);
     boardButtom = setFullsizeHeight * (66.5 / 100);
   }
 
