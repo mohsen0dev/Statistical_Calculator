@@ -33,7 +33,6 @@ class AppbarCustomSelection extends StatelessWidget {
     required this.nameSections,
     this.selectedDarkLight,
   });
-
   final List<String> nameSections;
   final customApbarClr = Get.put(CustomAppbarController());
   @override
