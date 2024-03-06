@@ -5,6 +5,7 @@ import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart
 import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Core/widgets/controller/custom_appbar_controller.dart';
 import 'package:simple_statistical_calculator/Core/widgets/custom_darklight_switch.dart';
+import 'package:simple_statistical_calculator/Core/widgets/custom_shape_circle.dart';
 
 class CustomAppBar extends StatelessWidget {
   final bool? selectedDarkLight;
@@ -53,26 +54,35 @@ class AppbarCustomSelection extends StatelessWidget {
                       width: AppSize.setFullsizeWidth / 2,
                       decoration: BoxDecoration(
                           color: selectedDarkLight == true
-                              ? customApbarClr.selectedSection == 1
+                              ? customApbarClr.selectedSection.value == 1
                                   ? AppColors.gery6
                                   : AppColors.gery5
-                              : customApbarClr.selectedSection == 1
+                              : customApbarClr.selectedSection.value == 1
                                   ? AppColors.gery1
                                   : AppColors.gery3),
                       child: Center(
-                        child: Text(
-                          nameSections[1],
-                          style: selectedDarkLight == true
-                              ? customApbarClr.selectedSection == 1
-                                  ? MyAppTextStyle.getBold(
-                                      color: AppColors.gery3, fontSize: 20)
-                                  : MyAppTextStyle.medium(
-                                      color: AppColors.gery7, fontSize: 20)
-                              : customApbarClr.selectedSection == 1
-                                  ? MyAppTextStyle.getBold(
-                                      color: AppColors.gery7, fontSize: 20)
-                                  : MyAppTextStyle.medium(
-                                      color: AppColors.gery6, fontSize: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              nameSections[1],
+                              style: selectedDarkLight == true
+                                  ? customApbarClr.selectedSection.value == 1
+                                      ? MyAppTextStyle.getBold(
+                                          color: AppColors.gery3, fontSize: 20)
+                                      : MyAppTextStyle.medium(
+                                          color: AppColors.gery7, fontSize: 20)
+                                  : customApbarClr.selectedSection.value == 1
+                                      ? MyAppTextStyle.getBold(
+                                          color: AppColors.gery7, fontSize: 20)
+                                      : MyAppTextStyle.medium(
+                                          color: AppColors.gery6, fontSize: 20),
+                            ),
+                            Visibility(
+                                visible:
+                                    customApbarClr.selectedSection.value == 1,
+                                child: const CustomShapeCircle()),
+                          ],
                         ),
                       ),
                     )),
@@ -84,26 +94,35 @@ class AppbarCustomSelection extends StatelessWidget {
                       width: AppSize.setFullsizeWidth / 2,
                       decoration: BoxDecoration(
                           color: selectedDarkLight == true
-                              ? customApbarClr.selectedSection == 0
+                              ? customApbarClr.selectedSection.value == 0
                                   ? AppColors.gery6
                                   : AppColors.gery5
-                              : customApbarClr.selectedSection == 0
+                              : customApbarClr.selectedSection.value == 0
                                   ? AppColors.gery1
                                   : AppColors.gery3),
                       child: Center(
-                        child: Text(
-                          nameSections[0],
-                          style: selectedDarkLight == true
-                              ? customApbarClr.selectedSection == 0
-                                  ? MyAppTextStyle.getBold(
-                                      color: AppColors.gery3, fontSize: 20)
-                                  : MyAppTextStyle.medium(
-                                      color: AppColors.gery7, fontSize: 20)
-                              : customApbarClr.selectedSection == 0
-                                  ? MyAppTextStyle.getBold(
-                                      color: AppColors.gery7, fontSize: 20)
-                                  : MyAppTextStyle.medium(
-                                      color: AppColors.gery6, fontSize: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              nameSections[0],
+                              style: selectedDarkLight == true
+                                  ? customApbarClr.selectedSection.value == 0
+                                      ? MyAppTextStyle.getBold(
+                                          color: AppColors.gery3, fontSize: 20)
+                                      : MyAppTextStyle.medium(
+                                          color: AppColors.gery7, fontSize: 20)
+                                  : customApbarClr.selectedSection.value == 0
+                                      ? MyAppTextStyle.getBold(
+                                          color: AppColors.gery7, fontSize: 20)
+                                      : MyAppTextStyle.medium(
+                                          color: AppColors.gery6, fontSize: 20),
+                            ),
+                            Visibility(
+                                visible:
+                                    customApbarClr.selectedSection.value == 0,
+                                child: const CustomShapeCircle()),
+                          ],
                         ),
                       ),
                     )),
@@ -111,20 +130,28 @@ class AppbarCustomSelection extends StatelessWidget {
             );
           }),
         ),
-        const SizedBox(height: 7,),
+        const SizedBox(
+          height: 7,
+        ),
         SizedBox(
           width: AppSize.setFullsizeWidth,
           height: 26,
-          child:Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Obx(() => Text(customApbarClr.modeCurrent.value==1?'روشن':'تاریک',style: MyAppTextStyle.getBold(color: AppColors.gery5,fontSize: 17), ),),
+              Obx(
+                () => Text(
+                  customApbarClr.modeCurrent.value == 1 ? 'روشن' : 'تاریک',
+                  style: MyAppTextStyle.getBold(
+                      color: AppColors.gery5, fontSize: 17),
+                ),
+              ),
               const Padding(
-                padding: EdgeInsets.only(left: 10,right: 5),
+                padding: EdgeInsets.only(left: 10, right: 5),
                 child: SwitchDarkLight(),
               ),
             ],
-          ) ,
+          ),
         ),
       ],
     );

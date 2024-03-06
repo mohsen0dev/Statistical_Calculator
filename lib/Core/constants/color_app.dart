@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static const Gradient GradientColor = LinearGradient(
+  static const Gradient gradientColor = LinearGradient(
       colors: [Color(0xffA430FF), Color(0xffF318AD), Color(0xffFF2171)],
       begin: Alignment.centerLeft,
       end: Alignment.centerRight);
