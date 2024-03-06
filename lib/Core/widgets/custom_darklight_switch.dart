@@ -5,14 +5,14 @@ import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Core/widgets/controller/custom_appbar_controller.dart';
 
 class SwitchDarkLight extends StatefulWidget {
- const SwitchDarkLight({super.key});
- static int? modeCurrent = 0;
+  const SwitchDarkLight({super.key});
+  static int? modeCurrent = 0;
   @override
   State<SwitchDarkLight> createState() => _SwitchDarkLightState();
 }
 
 class _SwitchDarkLightState extends State<SwitchDarkLight> {
-  final customAppBarClr=Get.put(CustomAppbarController());
+  final customAppBarClr = Get.put(CustomAppbarController());
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -20,13 +20,18 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
         current: SwitchDarkLight.modeCurrent,
         allowUnlistedValues: true,
         values: const [0, 1],
-        onChanged: (i) => setState(() {SwitchDarkLight.modeCurrent= i;convertValue(SwitchDarkLight.modeCurrent.toString());} ),
+        onChanged: (i) => setState(() {
+          SwitchDarkLight.modeCurrent = i;
+          convertValue(SwitchDarkLight.modeCurrent.toString());
+        }),
         iconBuilder: null,
         borderWidth: 4.5,
         minTouchTargetSize: 10,
         style: ToggleStyle(
-          indicatorColor: SwitchDarkLight.modeCurrent== 0 ? AppColors.gery1 : AppColors.gery6,
-          backgroundGradient: AppColors.GradientColor,
+          indicatorColor: SwitchDarkLight.modeCurrent == 0
+              ? AppColors.gery1
+              : AppColors.gery6,
+          backgroundGradient: AppColors.gradientColor,
           borderColor: const Color.fromARGB(0, 226, 198, 198),
         ),
         height: 26,
@@ -35,9 +40,10 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
       ),
     );
   }
-  void convertValue(String value){
-      int convertToInt;
-      convertToInt=int.parse(value);
-      customAppBarClr.modeCurrent.value=convertToInt;
+
+  void convertValue(String value) {
+    int convertToInt;
+    convertToInt = int.parse(value);
+    customAppBarClr.modeCurrent.value = convertToInt;
   }
 }
