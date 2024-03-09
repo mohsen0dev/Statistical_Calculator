@@ -21,32 +21,30 @@ class CustomPageView extends StatelessWidget {
   final PageController pageViewClr = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.gery1,
-        body: Obx(() {
-          final selectedPosetion = selectionModeAppBar.selectedSection.value;
-          return PageView.builder(
-              reverse: true,
-              controller: pageViewClr,
-              onPageChanged: (int value) {
-                selectionModeAppBar.selectedSection.value = value;
-              },
-              physics: const BouncingScrollPhysics(),
-              itemCount: 2,
-              itemBuilder: (context, index) {
-                if (selectedPosetion == 0) {
-                  return Container(
-                    decoration: BoxDecoration(color: backgroundColor),
-                    child: allWidgetCalculator.all,
-                  );
-                } else if (selectedPosetion == 1) {
-                  return Container(
-                    decoration: BoxDecoration(color: backgroundColor),
-                    child: allWidgetProbabilityStatistics.all,
-                  );
-                }
-                return null;
-              });
-        }));
+    return Obx(() {
+      final selectedPosetion = selectionModeAppBar.selectedSection.value;
+      return PageView.builder(
+          reverse: true,
+          controller: pageViewClr,
+          onPageChanged: (int value) {
+            selectionModeAppBar.selectedSection.value = value;
+          },
+          physics: const BouncingScrollPhysics(),
+          itemCount: 2,
+          itemBuilder: (context, index) {
+            if (selectedPosetion == 0) {
+              return Container(
+                decoration: BoxDecoration(color: backgroundColor),
+                child: allWidgetCalculator.all,
+              );
+            } else if (selectedPosetion == 1) {
+              return Container(
+                decoration: BoxDecoration(color: backgroundColor),
+                child: allWidgetProbabilityStatistics.all,
+              );
+            }
+            return null;
+          });
+    });
   }
 }

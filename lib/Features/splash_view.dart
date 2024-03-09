@@ -20,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offNamed(AppRoute.calculator);
+      Get.offNamed(AppRoute.mainPage);
     });
   }
 
