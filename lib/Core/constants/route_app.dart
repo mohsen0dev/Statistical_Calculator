@@ -4,9 +4,9 @@ import '../../Features/main_page_screen.dart';
 
 class AppRoute {
   static const String splashScreen = '/';
-  static const String calculator = '/mainpage';
+  static const String mainPage = '/mainpage';
   static List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => const SplashView()),
-    GetPage(name: calculator, page: () => const MainPageScreen())
+    GetPage(name: mainPage, page: () => const MainPageScreen())
   ];
 }
