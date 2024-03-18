@@ -29,15 +29,15 @@ class CustomAppBar extends StatelessWidget {
 
 class AppbarCustomSelection extends StatelessWidget {
   final bool? selectedDarkLight;
-  AppbarCustomSelection({
+  const AppbarCustomSelection({
     super.key,
     required this.nameSections,
     this.selectedDarkLight,
   });
   final List<String> nameSections;
-  final customApbarClr = Get.put(CustomAppbarController());
   @override
   Widget build(BuildContext context) {
+    final customApbarClr = Get.put(CustomAppbarController());
     return Column(
       children: [
         SizedBox(

@@ -6,21 +6,15 @@ import 'package:simple_statistical_calculator/Features/calculator/calculator_vie
 import '../../Features/probability_statistics/probability_statistics_view.dart';
 
 class CustomPageView extends StatelessWidget {
-  final selectionModeAppBar = Get.put(CustomAppbarController());
-  final allWidgetCalculator = CalculatorView();
-  final allWidgetProbabilityStatistics = ProbabilityStatisticsView();
   final Color? backgroundColor;
-  final Widget? widgetsList1;
-  final Widget? widgetsList2;
   CustomPageView({
     super.key,
     required this.backgroundColor,
-    this.widgetsList1,
-    this.widgetsList2,
   });
   final PageController pageViewClr = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
+    final selectionModeAppBar = Get.put(CustomAppbarController());
     return Obx(() {
       final selectedPosetion = selectionModeAppBar.selectedSection.value;
       return PageView.builder(
@@ -35,12 +29,12 @@ class CustomPageView extends StatelessWidget {
             if (selectedPosetion == 0) {
               return Container(
                 decoration: BoxDecoration(color: backgroundColor),
-                child: allWidgetCalculator.all,
+                child: const CalculatorView(),
               );
             } else if (selectedPosetion == 1) {
               return Container(
                 decoration: BoxDecoration(color: backgroundColor),
-                child: allWidgetProbabilityStatistics.all,
+                child: const ProbabilityStatisticsView(),
               );
             }
             return null;
