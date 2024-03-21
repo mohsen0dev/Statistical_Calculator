@@ -4,12 +4,13 @@ import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart
 import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 
 class CustomClearHistoryButton extends StatelessWidget {
-  const CustomClearHistoryButton({super.key});
+  const CustomClearHistoryButton({super.key, required this.onTapPos});
+  final Function() onTapPos;
 
   @override
   Widget build(Object context) {
     return InkWell(
-        onTap: () {},
+        onTap: onTapPos,
         child: Container(
           height: AppSize.historyButtonH,
           width: AppSize.historyButtonW,

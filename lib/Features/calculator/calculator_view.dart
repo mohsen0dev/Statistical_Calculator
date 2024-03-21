@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_size.dart';
-import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart';
 import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Core/widgets/custom_box_history.dart';
 import 'package:simple_statistical_calculator/Core/widgets/custom_buttons.dart';
@@ -9,20 +8,23 @@ import 'package:simple_statistical_calculator/Core/widgets/custom_clear_history_
 import 'package:simple_statistical_calculator/Core/widgets/custom_history_button.dart';
 import 'package:simple_statistical_calculator/Core/widgets/custom_textbox.dart';
 import 'package:simple_statistical_calculator/Features/calculator/calculator_controller.dart';
+import 'package:simple_statistical_calculator/Features/calculator/calculator_model.dart';
 
 class CalculatorView extends StatelessWidget {
-  const CalculatorView({super.key});
-
+  CalculatorView({super.key});
+  var calculatorControl = Get.put(CalculatorController());
+  var calculatorModel = Get.put(CalculatorModel());
   @override
   Widget build(BuildContext context) {
-    var calculatorControl = Get.put(CalculatorController());
     return Center(
         child: Column(
       children: [
         SizedBox(
           width: AppSize.setFullsizeWidth,
           height: AppSize.boardResult,
-          child: CustomTextBox(),
+          child: CustomTextBox(
+            controller: calculatorControl.textController,
+          ),
         ),
         Expanded(
             child: Container(
@@ -47,7 +49,9 @@ class CalculatorView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            calculatorModel.backSpace();
+                          },
                           child: const RotatedBox(
                               quarterTurns: 2,
                               child: Icon(
@@ -83,38 +87,66 @@ class CalculatorView extends StatelessWidget {
                                 bottomPad: AppSize.paddingButtonsH,
                                 name: '/',
                                 backgroundColor: AppColors.primary,
-                                textColor: AppColors.gery6),
+                                textColor: AppColors.gery6,
+                                controller: calculatorControl.textController,
+                                onTapPos: () {
+                                  calculatorModel.numberOperatorButtons();
+                                }),
                             CustomButtons(
                                 heightSize: AppSize.buttonsSizeH,
                                 widthSize: AppSize.buttonsSizeW,
                                 bottomPad: AppSize.paddingButtonsH,
                                 name: 'x',
                                 backgroundColor: AppColors.primary,
-                                textColor: AppColors.gery6),
+                                textColor: AppColors.gery6,
+                                controller: calculatorControl.textController,
+                                onTapPos: () {
+                                  calculatorModel.numberOperatorButtons();
+                                }),
                             CustomButtons(
                                 heightSize: AppSize.buttonsSizeH,
                                 widthSize: AppSize.buttonsSizeW,
                                 bottomPad: AppSize.paddingButtonsH,
                                 name: '-',
                                 backgroundColor: AppColors.primary,
-                                textColor: AppColors.gery6),
+                                textColor: AppColors.gery6,
+                                controller: calculatorControl.textController,
+                                onTapPos: () {
+                                  calculatorModel.numberOperatorButtons();
+                                }),
                             CustomButtons(
-                                heightSize: AppSize.buttonsSizeH,
-                                widthSize: AppSize.buttonsSizeW,
-                                bottomPad: AppSize.paddingButtonsH,
-                                name: '+',
-                                backgroundColor: AppColors.primary,
-                                textColor: AppColors.gery6),
+                              heightSize: AppSize.buttonsSizeH,
+                              widthSize: AppSize.buttonsSizeW,
+                              bottomPad: AppSize.paddingButtonsH,
+                              name: '+',
+                              backgroundColor: AppColors.primary,
+                              textColor: AppColors.gery6,
+                              controller: calculatorControl.textController,
+                              onTapPos: () {
+                                calculatorModel.numberOperatorButtons();
+                              },
+                            ),
                             CustomButtons(
-                                heightSize: AppSize.buttonsSizeH,
-                                widthSize: AppSize.buttonsSizeW,
-                                name: '=',
-                                backgroundGradient: AppColors.gradientColor,
-                                textColor: AppColors.gery6),
+                              heightSize: AppSize.buttonsSizeH,
+                              widthSize: AppSize.buttonsSizeW,
+                              name: '=',
+                              backgroundGradient: AppColors.gradientColor,
+                              textColor: AppColors.gery6,
+                              controller: calculatorControl.textController,
+                              onTapPos: () {
+                                calculatorModel.resulltButton();
+                              },
+                            ),
                           ],
                         ),
-                        BoardNumbers(calculatorControl: calculatorControl),
-                        BoardHistoryPanel(calculatorControl: calculatorControl)
+                        BoardNumbers(
+                          calculatorControl: calculatorControl,
+                          calculatorModel: calculatorModel,
+                        ),
+                        BoardHistoryPanel(
+                          calculatorControl: calculatorControl,
+                          calculatorModel: calculatorModel,
+                        )
                       ],
                     ),
                   )
@@ -132,8 +164,9 @@ class BoardHistoryPanel extends StatelessWidget {
   const BoardHistoryPanel({
     super.key,
     required this.calculatorControl,
+    required this.calculatorModel,
   });
-
+  final CalculatorModel calculatorModel;
   final CalculatorController calculatorControl;
 
   @override
@@ -149,9 +182,13 @@ class BoardHistoryPanel extends StatelessWidget {
                 SizedBox(
                   height: AppSize.boardHistoryButtonSpace,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 10),
-                  child: CustomClearHistoryButton(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: CustomClearHistoryButton(
+                    onTapPos: () {
+                      calculatorModel.clearHistoryButton();
+                    },
+                  ),
                 )
               ],
             ),
@@ -164,8 +201,9 @@ class BoardNumbers extends StatelessWidget {
   const BoardNumbers({
     super.key,
     required this.calculatorControl,
+    required this.calculatorModel,
   });
-
+  final CalculatorModel calculatorModel;
   final CalculatorController calculatorControl;
 
   @override
@@ -177,123 +215,188 @@ class BoardNumbers extends StatelessWidget {
               Row(
                 children: [
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '%',
-                      backgroundColor: AppColors.gery3,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '%',
+                    backgroundColor: AppColors.gery3,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.bigButtonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: 'C',
-                      backgroundColor: AppColors.gery3,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.bigButtonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: 'C',
+                    backgroundColor: AppColors.gery3,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.clearButton();
+                    },
+                  ),
                 ],
               ),
               Row(
                 children: [
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '9',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '9',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '8',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '8',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '7',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '7',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                 ],
               ),
               Row(
                 children: [
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '6',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '6',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '5',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '5',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '4',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '4',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                 ],
               ),
               Row(
                 children: [
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '3',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '3',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '2',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '2',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      bottomPad: AppSize.paddingButtonsH,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '1',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    bottomPad: AppSize.paddingButtonsH,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '1',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                 ],
               ),
               Row(
                 children: [
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.buttonsSizeW,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '.',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.buttonsSizeW,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '.',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                   CustomButtons(
-                      heightSize: AppSize.buttonsSizeH,
-                      widthSize: AppSize.bigButtonsSizeW,
-                      rightPad: AppSize.paddingButtonsW,
-                      name: '0',
-                      backgroundColor: AppColors.gery1,
-                      textColor: AppColors.gery6),
+                    heightSize: AppSize.buttonsSizeH,
+                    widthSize: AppSize.bigButtonsSizeW,
+                    rightPad: AppSize.paddingButtonsW,
+                    name: '0',
+                    backgroundColor: AppColors.gery1,
+                    textColor: AppColors.gery6,
+                    controller: calculatorControl.textController,
+                    onTapPos: () {
+                      calculatorModel.numberOperatorButtons();
+                    },
+                  ),
                 ],
               ),
             ],
