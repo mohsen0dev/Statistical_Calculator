@@ -13,7 +13,7 @@ class CustomBoxHistory extends StatelessWidget {
         child: Container(
           height: AppSize.boardHistoryH,
           width: AppSize.boardHistoryW,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: AppColors.gery3,
               borderRadius: BorderRadius.all(
                   Radius.circular(AppSize.borderRadiusBoxHistory)),

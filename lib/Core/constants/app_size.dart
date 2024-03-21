@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AppSize {
   static double setFullsizeWidth = 0;
@@ -38,7 +37,7 @@ class AppSize {
   static double historyButtonW = 0;
 
   void appSectionsPercent() {
-    appBarHeight = setFullsizeHeight * 0.091;
+    appBarHeight = setFullsizeHeight * 0.090;
     boardResult = setFullsizeHeight * (23.1 / 100);
     boardButtons = setFullsizeHeight * (67.8 / 100);
     boardResultButtonsW = setFullsizeWidth * (92.1 / 100);

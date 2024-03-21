@@ -1,37 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart';
 import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 
-class CustomTextBox extends StatefulWidget {
-  String? value;
-  CustomTextBox({super.key, this.value});
-  void setValueMethod() {
-    _CustomTextBoxState().updateValue(value.toString());
-  }
-
-  @override
-  State<CustomTextBox> createState() => _CustomTextBoxState();
-}
-
-class _CustomTextBoxState extends State<CustomTextBox> {
+class CustomTextBox extends StatelessWidget {
+  CustomTextBox({
+    required this.controller,
+    super.key,
+  });
   TextEditingController? controller;
-  void updateValue(String value) {
-    setState(() {
-      controller!.text = value ?? '';
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    FocusNode focusNode = FocusNode();
     return TextField(
-      focusNode: focusNode,
+      decoration: const InputDecoration(
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
       autofocus: false,
-      onTap: () {
-        FocusScope.of(context).requestFocus(focusNode);
-      },
+      maxLines: 10,
+      textDirection: TextDirection.ltr,
       style: MyAppTextStyle.getBold(color: AppColors.gery7, fontSize: 35),
       controller: controller,
+      inputFormatters: [
+        FilteringTextInputFormatter.deny(
+            RegExp('[ a-zA-Zآ-ی!@#?^&*()_`~|":;,{}]'))
+      ],
+      onChanged: (value) {
+        onChanged(value);
+      },
     );
+  }
+
+  void onChanged(String value) {
+    if (value.isNotEmpty) {
+      String lastChar = value[value.length - 1];
+      if (lastChar == '[' ||
+          lastChar == ']' ||
+          lastChar == '\\' ||
+          lastChar == '<' ||
+          lastChar == '>' ||
+          lastChar == '\'' ||
+          lastChar == '|') {
+        String currentValue = controller!.text;
+        controller!.text = currentValue.substring(0, currentValue.length - 1);
+      }
+    }
   }
 }
