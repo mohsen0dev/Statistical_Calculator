@@ -6,27 +6,36 @@ import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 class CustomTextBox extends StatelessWidget {
   CustomTextBox({
     required this.controller,
+    this.widthSize,
+    this.heightSize,
     super.key,
   });
   TextEditingController? controller;
+  double? widthSize;
+  double? heightSize;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: const InputDecoration(
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-      autofocus: false,
-      maxLines: 10,
-      textDirection: TextDirection.ltr,
-      style: MyAppTextStyle.getBold(color: AppColors.gery7, fontSize: 35),
-      controller: controller,
-      inputFormatters: [
-        FilteringTextInputFormatter.deny(
-            RegExp('[ a-zA-Zآ-ی!@#?^&*()_`~|":;,{}]'))
-      ],
-      onChanged: (value) {
-        onChanged(value);
-      },
+    return SizedBox(
+      height: heightSize,
+      width: widthSize,
+      child: TextField(
+        decoration: const InputDecoration(
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+        autofocus: false,
+        maxLines: 1,
+        textDirection: TextDirection.ltr,
+        style: MyAppTextStyle.getBold(color: AppColors.gery7, fontSize: 25),
+        controller: controller,
+        inputFormatters: [
+          FilteringTextInputFormatter.deny(
+              RegExp('[ a-zA-Zآ-ی!@#?^&*()_*-/+%`~|":;,{}]'))
+        ],
+        onChanged: (value) {
+          onChanged(value);
+        },
+      ),
     );
   }
 

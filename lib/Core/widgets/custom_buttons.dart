@@ -4,19 +4,19 @@ import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart
 
 class CustomButtons extends StatelessWidget {
   final String name;
-  Color? backgroundColor;
-  Gradient? backgroundGradient;
+  final Color? backgroundColor;
+  final double? customWidth;
+  final Gradient? backgroundGradient;
   final Color textColor;
-  final double widthSize;
-  final double heightSize;
-  double? bottomPad;
-  double? leftPad;
-  double? rightPad;
-  double? topPad;
+  final double bottomPad;
+  final double leftPad;
+  final double rightPad;
+  final double topPad;
   final TextEditingController controller;
-  final Function() onTapPos;
+  final Function(String)? onTapPos;
+  final Function()? onTapPosVoid;
 
-  CustomButtons(
+  const CustomButtons(
       {super.key,
       required this.name,
       this.backgroundColor,
@@ -25,22 +25,31 @@ class CustomButtons extends StatelessWidget {
       this.leftPad = 0,
       this.rightPad = 0,
       this.topPad = 0,
-      required this.widthSize,
-      required this.heightSize,
       this.backgroundGradient,
       required this.controller,
-      required this.onTapPos});
+      this.onTapPos,
+      this.onTapPosVoid,
+      this.customWidth});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(
-            bottom: bottomPad!, left: leftPad!, right: rightPad!, top: topPad!),
+            bottom: bottomPad, left: leftPad, right: rightPad, top: topPad),
         child: InkWell(
-            onTap: onTapPos,
+            onTap: () {
+              if (name != 'ثبت' &&
+                  name != 'محاسبه' &&
+                  name != 'حذف کل' &&
+                  name != 'محاسبه جدید') {
+                onTapPos!(name);
+              } else {
+                onTapPosVoid!();
+              }
+            },
             child: Container(
-              height: heightSize,
-              width: widthSize,
+              height: AppSize.buttonsSizeH,
+              width: customWidth ?? AppSize.buttonsSizeW,
               decoration: BoxDecoration(
                   gradient: backgroundGradient,
                   color: backgroundColor,
@@ -48,6 +57,8 @@ class CustomButtons extends StatelessWidget {
                       Radius.circular(AppSize.borderRadiusButtons))),
               child: Center(
                 child: Text(name,
+                    textAlign: TextAlign.center,
+                    textScaler: TextScaler.linear(AppSize.textScaleFactor),
                     style: MyAppTextStyle.getBold(
                         color: textColor,
                         fontSize: AppSize.textSizeBoldButtom)),

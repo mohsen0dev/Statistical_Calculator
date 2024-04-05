@@ -20,7 +20,11 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
 class MyAppTextStyle {
   //semi Bold Style
   static TextStyle getSemiBold({required Color color, double fontSize = 16.0}) {
-    return _getTextStyle(fontSize, FontManager.semiBold, color);
+    return _getTextStyle(
+      fontSize,
+      FontManager.semiBold,
+      color,
+    );
   }
 
   //Bold Style
