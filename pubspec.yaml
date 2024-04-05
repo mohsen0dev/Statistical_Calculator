@@ -11,7 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
   lottie: ^3.0.0
   get: ^4.6.6
   animated_toggle_switch: ^0.8.2

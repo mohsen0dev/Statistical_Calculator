@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_statistical_calculator/Core/widgets/controller/custom_appbar_controller.dart';
-import 'package:simple_statistical_calculator/Features/calculator/calculator_view.dart';
-import '../../Features/probability_statistics/probability_statistics_view.dart';
+import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_view.dart';
 
 class CustomPageView extends StatelessWidget {
   final Color? backgroundColor;
@@ -20,23 +19,23 @@ class CustomPageView extends StatelessWidget {
           reverse: true,
           controller: pageViewClr,
           onPageChanged: (int value) {
-            selectionModeAppBar.selectedSection.value = value;
+            //selectionModeAppBar.selectedSection.value = value;
           },
           physics: const BouncingScrollPhysics(),
-          itemCount: 2,
+          itemCount: 1,
           itemBuilder: (context, index) {
             if (selectedPosetion == 0) {
               return Container(
-                decoration: BoxDecoration(color: backgroundColor),
-                child: CalculatorView(),
-              );
-            } else if (selectedPosetion == 1) {
-              return Container(
-                decoration: BoxDecoration(color: backgroundColor),
-                child: const ProbabilityStatisticsView(),
-              );
+                  decoration: BoxDecoration(color: backgroundColor),
+                  child: const ProbabilityStatisticsView());
             }
-            return null;
+            // else if (selectedPosetion == 1) {
+            //   return Container(
+            //     decoration: BoxDecoration(color: backgroundColor),
+            //     child: const ProbabilityStatisticsView(),
+            //   );
+            // }
+            //return null;
           });
     });
   }
