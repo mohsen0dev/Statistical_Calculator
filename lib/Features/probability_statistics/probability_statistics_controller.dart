@@ -25,7 +25,8 @@ class ProbabilityStatisticsController extends GetxController {
 
   void resulltButton() {
     probabilityrModel.inputArryData = addInputDeta;
-    dynamic values = probabilityrModel.resulltButton(numberData.toInt());
+    probabilityrModel.value = numberData.toInt();
+    dynamic values = probabilityrModel.resulltButton();
     K = values[0];
     L = values[1];
     R = values[2];

@@ -9,6 +9,7 @@ class ProbabilityStatisticsModel {
   String _sub1 = '', _data = '';
   double _classKhoroj1 = 0, _hadMotevaset = 0, _classKhoroj = 0, L = 0, R = 0;
   int _i = 0,
+      value = 0,
       _count = 0,
       _faravani1 = 0,
       _numberGroup = 0,
@@ -24,7 +25,7 @@ class ProbabilityStatisticsModel {
       _minNum = 0,
       _bigNum = 0;
 
-  dynamic resulltButton(int value) {
+  dynamic resulltButton() {
     _i = value;
     _count = value;
     _i--;
@@ -66,51 +67,51 @@ class ProbabilityStatisticsModel {
       L += 0.1;
     }
     //send calculation to listview FOR view
-    List<List<String>> _arryGread2D =
+    List<List<String>> arryGread2D =
         List.generate(K, (index) => List<String>.filled(7, ''));
-    List<String> _dataRase = List<String>.generate(2, (index) => '');
+    List<String> dataRase = List<String>.generate(2, (index) => '');
     for (; _ij < K; _ij++) {
       _classKhoroj1 = _classKhoroj;
       _classKhoroj += L;
       for (int ijj = 0; ijj <= 6; ijj++) {
         if (ijj == 0) {
           _numberGroup += 1;
-          _arryGread2D[_ij][ijj] = _numberGroup.toString();
+          arryGread2D[_ij][ijj] = _numberGroup.toString();
         } else if (ijj == 1) {
-          _arryGread2D[_ij][ijj] = '${_classKhoroj1.toStringAsFixed(2)}'
+          arryGread2D[_ij][ijj] = '${_classKhoroj1.toStringAsFixed(2)}'
               ' - '
               '${_classKhoroj.toStringAsFixed(2)}';
         } else if (ijj == 2) {
           _hadMotevaset = (_classKhoroj1 + _classKhoroj) / 2;
           _hadMotevaset = (_hadMotevaset * 100).round() / 100;
           _hadMotevaset = double.parse(_hadMotevaset.toStringAsFixed(2));
-          _arryGread2D[_ij][ijj] = _hadMotevaset.toString();
+          arryGread2D[_ij][ijj] = _hadMotevaset.toString();
         } else if (ijj == 3) {
-          for (int data_i = 0; data_i < inputArryData.length; data_i++) {
-            if (_classKhoroj1 <= inputArryData[data_i].toDouble() &&
-                _classKhoroj > inputArryData[data_i].toDouble()) {
+          for (int dataI = 0; dataI < inputArryData.length; dataI++) {
+            if (_classKhoroj1 <= inputArryData[dataI].toDouble() &&
+                _classKhoroj > inputArryData[dataI].toDouble()) {
               _faravani++;
-              arryListBox.add(inputArryData[data_i].toString());
+              arryListBox.add(inputArryData[dataI].toString());
             }
           }
           _faravani1 = _faravani1 + _faravani;
           arryListBox.add("-------");
-          _arryGread2D[_ij][ijj] = _faravani.toString();
+          arryGread2D[_ij][ijj] = _faravani.toString();
         } else if (ijj == 4) {
-          _dataRase[0] = ('$_faravani.0');
-          _dataRase[1] = ('$_count.0');
+          dataRase[0] = ('$_faravani.0');
+          dataRase[1] = ('$_count.0');
           _faravani = 0;
           _darsadFaravani =
-              ((double.parse(_dataRase[0]) / double.parse(_dataRase[1])) * 100)
+              ((double.parse(dataRase[0]) / double.parse(dataRase[1])) * 100)
                   .round();
           _darsadFaravaniTajamoei1 = _darsadFaravani.toInt();
-          _arryGread2D[_ij][ijj] = _darsadFaravani.toString();
+          arryGread2D[_ij][ijj] = _darsadFaravani.toString();
         } else if (ijj == 5) {
           _faravaniTajamoei = _faravani1;
-          _arryGread2D[_ij][ijj] = _faravaniTajamoei.toString();
+          arryGread2D[_ij][ijj] = _faravaniTajamoei.toString();
         } else if (ijj == 6) {
           _darsadFaravaniTajamoei += _darsadFaravaniTajamoei1;
-          _arryGread2D[_ij][ijj] = _darsadFaravaniTajamoei.toString();
+          arryGread2D[_ij][ijj] = _darsadFaravaniTajamoei.toString();
         }
       }
     }
@@ -118,7 +119,7 @@ class ProbabilityStatisticsModel {
     for (int i = 0; i < K; i++) {
       List<String> row = [];
       for (int j = 0; j <= 6; j++) {
-        row.add(_arryGread2D[i][j]);
+        row.add(arryGread2D[i][j]);
       }
       arryDatatable.add(row);
     }
