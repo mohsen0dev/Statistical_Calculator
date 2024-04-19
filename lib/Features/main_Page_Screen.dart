@@ -19,29 +19,29 @@ class _MainPageScreenState extends State<MainPageScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          backgroundColor: AppColors.gery1,
-          appBar: const CustomSelectionAppBar(),
-          body: PopScope(
-            canPop: false,
-            onPopInvoked: (didPop) {
-              if (didPop) {
-                return;
-              } else {
-                if (widget.probabilityControl.showResultPage.value == false) {
-                  Get.back();
-                }
-              }
-            },
-            child: Obx(
+      child: PopScope(
+        canPop: false,
+        onPopInvoked: (didPop) {
+          if (didPop) {
+            return;
+          } else {
+            if (widget.probabilityControl.showResultPage.value == false) {
+              Get.back();
+            }
+          }
+        },
+        child: Scaffold(
+            backgroundColor: AppColors.gery1,
+            appBar: const CustomSelectionAppBar(),
+            body: Obx(
               () => widget.probabilityControl.showResultPage.value
                   ? ResultView(
                       probabilityModel: widget.probabilityModel,
                       probabilityControl: widget.probabilityControl,
                     )
                   : const ProbabilityStatisticsView(),
-            ),
-          )),
+            )),
+      ),
     );
   }
 }
