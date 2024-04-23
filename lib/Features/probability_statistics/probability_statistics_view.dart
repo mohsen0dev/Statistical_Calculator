@@ -17,6 +17,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
   static var probabilityModel = Get.put(ProbabilityStatisticsController());
   @override
   Widget build(BuildContext context) {
+    final themedata = Theme.of(context);
     List<String> homePageStr = [
       'ورود داده',
       'پس از نوشتن یک داده دکمه ثبت را بزنید',
@@ -41,11 +42,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                   Text(
                     homePageStr[0],
                     textScaler: TextScaler.linear(AppSize.textScaleFactor),
-                    style: probabilityControl.selectedDarkLight.value == true
-                        ? MyAppTextStyle.getBold(
-                            color: AppColors.gery3, fontSize: 25)
-                        : MyAppTextStyle.getBold(
-                            color: AppColors.gery6, fontSize: 25),
+                    style: MyAppTextStyle.getBold(
+                        color: themedata.colorScheme.error, fontSize: 25),
                   ),
                   const SizedBox(
                     width: 10,
@@ -63,20 +61,15 @@ class ProbabilityStatisticsView extends StatelessWidget {
                   ),
                   Tooltip(
                     message: homePageStr[1],
-                    textStyle:
-                        probabilityControl.selectedDarkLight.value == true
-                            ? MyAppTextStyle.getBold(
-                                color: AppColors.gery3, fontSize: 25)
-                            : MyAppTextStyle.getBold(
-                                color: AppColors.gery6, fontSize: 25),
+                    decoration: BoxDecoration(color: themedata.iconTheme.color),
+                    textStyle: MyAppTextStyle.getBold(
+                        color: AppColors.gery6, fontSize: 20),
                     showDuration: const Duration(seconds: 3),
                     triggerMode: TooltipTriggerMode.tap,
                     child: Icon(
                       Icons.info_outline_rounded,
                       size: 30,
-                      color: probabilityControl.selectedDarkLight.value == true
-                          ? AppColors.gery3
-                          : AppColors.gery6,
+                      color: themedata.iconTheme.color,
                     ),
                   ),
                 ],
@@ -87,18 +80,15 @@ class ProbabilityStatisticsView extends StatelessWidget {
               Obx(() => Text(
                     '${probabilityControl.numberData} ' '${homePageStr[2]}',
                     textScaler: TextScaler.linear(AppSize.textScaleFactor),
-                    style: probabilityControl.selectedDarkLight.value == true
-                        ? MyAppTextStyle.getBold(
-                            color: AppColors.gery3, fontSize: 25)
-                        : MyAppTextStyle.getBold(
-                            color: AppColors.gery6, fontSize: 25),
+                    style: MyAppTextStyle.getBold(
+                        color: themedata.colorScheme.error, fontSize: 25),
                   )),
             ],
           ),
         ),
         Expanded(
             child: Container(
-          color: AppColors.gery2,
+          color: themedata.primaryColor,
           width: AppSize.setFullsizeWidth,
           height: AppSize.boardButtons,
           child: Column(children: [
@@ -126,7 +116,6 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               quarterTurns: 2,
                               child: Icon(
                                 Icons.backspace_outlined,
-                                color: AppColors.secondary1,
                                 size: 35,
                               )),
                         ),
@@ -146,8 +135,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '9',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -157,8 +146,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '8',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -168,8 +157,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '7',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -182,8 +171,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '6',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -193,8 +182,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '5',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -204,8 +193,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '4',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -218,8 +207,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '3',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -229,8 +218,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '2',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -240,8 +229,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '1',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -254,8 +243,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '.',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
                                 probabilityControl.numberButtons(value);
@@ -265,8 +254,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               rightPad: AppSize.paddingButtonsW,
                               bottomPad: AppSize.paddingButtonsH,
                               name: '0',
-                              backgroundColor: AppColors.gery1,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
                               customWidth: AppSize.bigButtonsSizeW,
                               controller: probabilityControl.textController,
                               onTapPos: (value) {
@@ -280,7 +269,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               name: 'ثبت',
                               backgroundGradient: AppColors.gradientColor,
-                              textColor: AppColors.gery6,
+                              textColor: themedata.colorScheme.onError,
                               controller: probabilityControl.textController,
                               onTapPosVoid: () {
                                 if (probabilityControl
@@ -292,60 +281,32 @@ class ProbabilityStatisticsView extends StatelessWidget {
                                     Get.snackbar(
                                       '',
                                       '',
-                                      titleText: Text(
-                                        homePageStr[6],
-                                        style: probabilityControl
-                                                    .selectedDarkLight.value ==
-                                                true
-                                            ? MyAppTextStyle.getBold(
-                                                color: AppColors.gery3,
-                                                fontSize: 23)
-                                            : MyAppTextStyle.getBold(
-                                                color: AppColors.gery6,
-                                                fontSize: 23),
-                                      ),
-                                      messageText: Text(
-                                        homePageStr[5],
-                                        style: probabilityControl
-                                                    .selectedDarkLight.value ==
-                                                true
-                                            ? MyAppTextStyle.getBold(
-                                                color: AppColors.gery3,
-                                                fontSize: 22)
-                                            : MyAppTextStyle.getBold(
-                                                color: AppColors.gery6,
-                                                fontSize: 22),
-                                      ),
+                                      titleText: Text(homePageStr[6],
+                                          style: MyAppTextStyle.getBold(
+                                              color:
+                                                  themedata.colorScheme.surface,
+                                              fontSize: 23)),
+                                      messageText: Text(homePageStr[5],
+                                          style: MyAppTextStyle.getBold(
+                                              color:
+                                                  themedata.colorScheme.surface,
+                                              fontSize: 22)),
                                     );
                                   }
                                 } else {
                                   Get.snackbar(
                                     '',
                                     '',
-                                    titleText: Text(
-                                      homePageStr[6],
-                                      style: probabilityControl
-                                                  .selectedDarkLight.value ==
-                                              true
-                                          ? MyAppTextStyle.getBold(
-                                              color: AppColors.gery3,
-                                              fontSize: 23)
-                                          : MyAppTextStyle.getBold(
-                                              color: AppColors.gery6,
-                                              fontSize: 23),
-                                    ),
-                                    messageText: Text(
-                                      homePageStr[4],
-                                      style: probabilityControl
-                                                  .selectedDarkLight.value ==
-                                              true
-                                          ? MyAppTextStyle.getBold(
-                                              color: AppColors.gery3,
-                                              fontSize: 22)
-                                          : MyAppTextStyle.getBold(
-                                              color: AppColors.gery6,
-                                              fontSize: 22),
-                                    ),
+                                    titleText: Text(homePageStr[6],
+                                        style: MyAppTextStyle.getBold(
+                                            color:
+                                                themedata.colorScheme.surface,
+                                            fontSize: 23)),
+                                    messageText: Text(homePageStr[4],
+                                        style: MyAppTextStyle.getBold(
+                                            color:
+                                                themedata.colorScheme.surface,
+                                            fontSize: 22)),
                                   );
                                 }
                               },
@@ -353,8 +314,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                                 rightPad: AppSize.paddingButtonsW,
                                 name: 'محاسبه',
-                                backgroundColor: AppColors.gery3,
-                                textColor: AppColors.gery6,
+                                backgroundColor: themedata.secondaryHeaderColor,
+                                textColor: themedata.colorScheme.surface,
                                 controller: probabilityControl.textController,
                                 onTapPosVoid: () {
                                   if (probabilityControl.numberData.value ==
@@ -362,30 +323,16 @@ class ProbabilityStatisticsView extends StatelessWidget {
                                     Get.snackbar(
                                       '',
                                       '',
-                                      titleText: Text(
-                                        homePageStr[6],
-                                        style: probabilityControl
-                                                    .selectedDarkLight.value ==
-                                                true
-                                            ? MyAppTextStyle.getBold(
-                                                color: AppColors.gery3,
-                                                fontSize: 23)
-                                            : MyAppTextStyle.getBold(
-                                                color: AppColors.gery6,
-                                                fontSize: 23),
-                                      ),
-                                      messageText: Text(
-                                        homePageStr[3],
-                                        style: probabilityControl
-                                                    .selectedDarkLight.value ==
-                                                true
-                                            ? MyAppTextStyle.getBold(
-                                                color: AppColors.gery3,
-                                                fontSize: 22)
-                                            : MyAppTextStyle.getBold(
-                                                color: AppColors.gery6,
-                                                fontSize: 22),
-                                      ),
+                                      titleText: Text(homePageStr[6],
+                                          style: MyAppTextStyle.getBold(
+                                              color:
+                                                  themedata.colorScheme.surface,
+                                              fontSize: 23)),
+                                      messageText: Text(homePageStr[3],
+                                          style: MyAppTextStyle.getBold(
+                                              color:
+                                                  themedata.colorScheme.surface,
+                                              fontSize: 22)),
                                     );
                                   } else {
                                     probabilityControl.resulltButton();
@@ -394,8 +341,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               rightPad: AppSize.paddingButtonsW,
                               name: 'حذف کل',
-                              backgroundColor: AppColors.gery3,
-                              textColor: AppColors.gery6,
+                              backgroundColor: themedata.secondaryHeaderColor,
+                              textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
                               onTapPosVoid: () {
                                 probabilityControl.clearButton();
@@ -426,11 +373,7 @@ class ResultView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle styleLigth =
-        MyAppTextStyle.getBold(color: AppColors.gery3, fontSize: 17);
-    final TextStyle styleDark =
-        MyAppTextStyle.getBold(color: AppColors.gery6, fontSize: 17);
-
+    final themedata = Theme.of(context);
     List<String> resultFeildName = [
       'جدول تعداد فراوانی',
       'R',
@@ -482,13 +425,10 @@ class ResultView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          resultFeildName[0],
-                          style:
-                              probabilityControl.selectedDarkLight.value == true
-                                  ? styleLigth.copyWith(fontSize: 20)
-                                  : styleDark.copyWith(fontSize: 20),
-                        ),
+                        Text(resultFeildName[0],
+                            style: MyAppTextStyle.getBold(
+                                color: themedata.colorScheme.onSecondary,
+                                fontSize: 20)),
                         const SizedBox(
                           height: 10,
                         ),
@@ -500,7 +440,8 @@ class ResultView extends StatelessWidget {
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(10)),
                                 border: Border.all(
-                                    color: AppColors.gery3, width: 2)),
+                                    color: themedata.colorScheme.onPrimary,
+                                    width: 2)),
                             child: CustomListBox(
                               probabilityModel: probabilityModel,
                               probabilityControl: probabilityControl,
@@ -540,7 +481,7 @@ class ResultView extends StatelessWidget {
                         CustomButtons(
                           name: resultFeildName[4],
                           backgroundGradient: AppColors.gradientColor,
-                          textColor: AppColors.gery6,
+                          textColor: themedata.colorScheme.onError,
                           controller: ProbabilityStatisticsView
                               .probabilityControl.textController,
                           onTapPosVoid: () {

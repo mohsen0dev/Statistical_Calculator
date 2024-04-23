@@ -42,7 +42,7 @@ class AppSize {
   void appSectionsPercent() {
     appBarHeight = setFullsizeHeight * 0.090;
     boardInputDate = setFullsizeHeight * (23.1 / 100);
-    boardButtons = setFullsizeHeight * (67.75 / 100);
+    boardButtons = (setFullsizeHeight * (67.75 / 100)) - 34.5;
     appBarTitle = appBarHeight * (57.35 / 100);
     appBarPadding = appBarHeight * 0.0854;
     appBarMiniBoard = appBarHeight * (31.71 / 100);

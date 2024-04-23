@@ -6,7 +6,7 @@ import 'package:simple_statistical_calculator/Core/themes/themes.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  final lightMyAppThemeIns = LightMyAppTheme();
+  final myAppThemeIns = MyAppTheme();
   @override
   Widget build(BuildContext context) {
     AppSize().init(context);
@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       locale: const Locale('fa'),
       debugShowCheckedModeBanner: false,
-      theme: lightMyAppThemeIns.lightTheme(),
+      theme: myAppThemeIns.lightTheme(),
+      darkTheme: myAppThemeIns.darkTheme(),
+      themeMode: ThemeMode.dark,
       initialRoute: AppRoute.splashScreen,
       getPages: AppRoute.routes,
     );
