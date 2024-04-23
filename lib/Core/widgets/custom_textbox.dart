@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart';
-import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 
 class CustomTextBox extends StatelessWidget {
   CustomTextBox({
@@ -15,18 +14,22 @@ class CustomTextBox extends StatelessWidget {
   double? heightSize;
   @override
   Widget build(BuildContext context) {
+    final themedata = Theme.of(context);
     return SizedBox(
       height: heightSize,
       width: widthSize,
       child: TextField(
-        decoration: const InputDecoration(
-            border: OutlineInputBorder(
+        decoration: InputDecoration(
+            focusColor: themedata.colorScheme.primary,
+            border: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-        autofocus: false,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+        autofocus: true,
         maxLines: 1,
         textDirection: TextDirection.ltr,
-        style: MyAppTextStyle.getBold(color: AppColors.gery7, fontSize: 25),
+        style: MyAppTextStyle.getBold(
+            color: themedata.colorScheme.surface, fontSize: 25),
         controller: controller,
         inputFormatters: [
           FilteringTextInputFormatter.deny(

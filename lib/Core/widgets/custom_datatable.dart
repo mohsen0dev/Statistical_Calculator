@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart';
-import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_controller.dart';
 import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_model.dart';
 
@@ -18,21 +17,17 @@ class CustomDataTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle styleLigth =
-        MyAppTextStyle.getBold(color: AppColors.gery3, fontSize: 17);
-    final TextStyle styleDark =
-        MyAppTextStyle.getBold(color: AppColors.gery6, fontSize: 17);
+    final themedata = Theme.of(context);
     return DataTable(
         horizontalMargin: 20,
         dividerThickness: 2,
-        headingTextStyle: probabilityControl.selectedDarkLight.value == true
-            ? styleLigth
-            : styleDark,
+        headingTextStyle: MyAppTextStyle.getBold(
+            color: themedata.colorScheme.onSecondary, fontSize: 17),
         columnSpacing: 35,
-        dataRowColor: const MaterialStatePropertyAll(AppColors.gery2),
-        dataTextStyle: probabilityControl.selectedDarkLight.value == true
-            ? styleLigth
-            : styleDark,
+        dataRowColor:
+            MaterialStatePropertyAll(themedata.colorScheme.background),
+        dataTextStyle: MyAppTextStyle.getBold(
+            color: themedata.colorScheme.onSecondary, fontSize: 17),
         columns: [
           DataColumn(
               label: Text(

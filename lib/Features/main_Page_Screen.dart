@@ -1,15 +1,15 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_controller.dart';
 import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_model.dart';
 import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_view.dart';
 import '../Core/constants/app_bar.dart';
-import '../Core/constants/color_app.dart';
 
 class MainPageScreen extends StatefulWidget {
   MainPageScreen({super.key});
-  var probabilityControl = Get.put(ProbabilityStatisticsController());
-  var probabilityModel = Get.put(ProbabilityStatisticsModel());
+  final probabilityControl = Get.put(ProbabilityStatisticsController());
+  final probabilityModel = Get.put(ProbabilityStatisticsModel());
 
   @override
   State<MainPageScreen> createState() => _MainPageScreenState();
@@ -26,12 +26,11 @@ class _MainPageScreenState extends State<MainPageScreen> {
             return;
           } else {
             if (widget.probabilityControl.showResultPage.value == false) {
-              Get.back();
+              SystemNavigator.pop();
             }
           }
         },
         child: Scaffold(
-            backgroundColor: AppColors.gery1,
             appBar: const CustomSelectionAppBar(),
             body: Obx(
               () => widget.probabilityControl.showResultPage.value

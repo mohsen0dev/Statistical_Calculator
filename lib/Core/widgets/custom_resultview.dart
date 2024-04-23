@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_size.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart';
-import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_controller.dart';
 import 'package:simple_statistical_calculator/Features/probability_statistics/probability_statistics_model.dart';
 
@@ -19,18 +18,12 @@ class CustomResultView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle styleLigth =
-        MyAppTextStyle.getBold(color: AppColors.gery3, fontSize: 17);
-    final TextStyle styleDark =
-        MyAppTextStyle.getBold(color: AppColors.gery6, fontSize: 17);
+    final themedata = Theme.of(context);
     return Column(
       children: [
-        Text(
-          nameField,
-          style: probabilityControl.selectedDarkLight.value == true
-              ? styleLigth.copyWith(fontSize: 20)
-              : styleDark.copyWith(fontSize: 20),
-        ),
+        Text(nameField,
+            style: MyAppTextStyle.getBold(
+                color: themedata.colorScheme.onSecondary, fontSize: 20)),
         const SizedBox(
           height: 10,
         ),
@@ -40,12 +33,12 @@ class CustomResultView extends StatelessWidget {
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-              border: Border.all(color: AppColors.gery3, width: 2)),
+              border:
+                  Border.all(color: themedata.colorScheme.onPrimary, width: 2)),
           child: Text(
             viewValue,
-            style: probabilityControl.selectedDarkLight.value == true
-                ? styleLigth.copyWith(fontSize: 20)
-                : styleDark.copyWith(fontSize: 20),
+            style: MyAppTextStyle.getBold(
+                color: themedata.colorScheme.onSecondary, fontSize: 20),
             textDirection: TextDirection.ltr,
             textAlign: TextAlign.center,
           ),

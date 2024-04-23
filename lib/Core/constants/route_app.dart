@@ -7,6 +7,6 @@ class AppRoute {
   static const String mainPage = '/mainpage';
   static List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => const SplashView()),
-    GetPage(name: mainPage, page: () => const MainPageScreen())
+    GetPage(name: mainPage, page: () => MainPageScreen())
   ];
 }
