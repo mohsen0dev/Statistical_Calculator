@@ -4,9 +4,16 @@ import 'package:simple_statistical_calculator/Core/constants/app_size.dart';
 import 'package:simple_statistical_calculator/Core/constants/route_app.dart';
 import 'package:simple_statistical_calculator/Core/themes/themes.dart';
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   final myAppThemeIns = MyAppTheme();
+
   @override
   Widget build(BuildContext context) {
     AppSize().init(context);
