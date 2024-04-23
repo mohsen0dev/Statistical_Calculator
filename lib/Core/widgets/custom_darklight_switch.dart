@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Core/themes/themes.dart';
 import 'package:simple_statistical_calculator/Core/widgets/controller/custom_appbar_controller.dart';
@@ -12,8 +13,27 @@ class SwitchDarkLight extends StatefulWidget {
 }
 
 class _SwitchDarkLightState extends State<SwitchDarkLight> {
-  static int? modeCurrent = 0;
+  @override
+  void initState() {
+    super.initState();
+    _loadThemeMode();
+  }
+
+  int modeCurrent = 0;
   final customAppBarClr = Get.put(CustomAppbarController());
+  Future<void> _loadThemeMode() async {
+    final numberMode = await SharedPreferences.getInstance();
+    final storedMode = numberMode.getInt('mode');
+    setState(() {
+      modeCurrent = storedMode ?? 0;
+    });
+  }
+
+  Future<void> _saveThemeMode(int themeMode) async {
+    final numberMode = await SharedPreferences.getInstance();
+    await numberMode.setInt('mode', themeMode);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -22,13 +42,14 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
         allowUnlistedValues: true,
         values: const [0, 1],
         onChanged: (i) => setState(() {
-          modeCurrent = i;
+          modeCurrent = int.parse(i.toString());
           convertValue(modeCurrent.toString());
           Get.changeTheme(modeCurrent == 0
               ? MyAppTheme().darkTheme()
               : MyAppTheme().lightTheme());
           Get.changeThemeMode(
               modeCurrent == 0 ? ThemeMode.dark : ThemeMode.light);
+          _saveThemeMode(modeCurrent);
         }),
         iconBuilder: null,
         borderWidth: 4.5,
