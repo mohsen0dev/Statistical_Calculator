@@ -16,11 +16,19 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
   @override
   void initState() {
     super.initState();
-    convertValue(CustomAppbarController().selectedLDMode);
+    _loadThemeMode();
   }
 
-  int modeCurrent = CustomAppbarController().selectedLDMode;
+  int modeCurrent = 0;
   final customAppBarClr = Get.put(CustomAppbarController());
+  Future<void> _loadThemeMode() async {
+    final numberMode = await SharedPreferences.getInstance();
+    final storedMode = numberMode.getInt('mode');
+    setState(() {
+      modeCurrent = storedMode ?? 0;
+    });
+  }
+
   Future<void> _saveThemeMode(int themeMode) async {
     final numberMode = await SharedPreferences.getInstance();
     await numberMode.setInt('mode', themeMode);
@@ -35,7 +43,7 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
         values: const [0, 1],
         onChanged: (i) => setState(() {
           modeCurrent = int.parse(i.toString());
-          convertValue(modeCurrent);
+          convertValue(modeCurrent.toString());
           Get.changeTheme(modeCurrent == 0
               ? MyAppTheme().darkTheme()
               : MyAppTheme().lightTheme());
@@ -58,8 +66,10 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
     );
   }
 
-  void convertValue(int value) {
-    if (value == 0) {
+  void convertValue(String value) {
+    int convertToInt;
+    convertToInt = int.parse(value);
+    if (convertToInt == 0) {
       customAppBarClr.modeCurrent.value = false;
     } else {
       customAppBarClr.modeCurrent.value = true;

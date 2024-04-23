@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Core/constants/route_app.dart';
 import 'package:simple_statistical_calculator/Core/gen/assets.gen.dart';
 
 class SplashView extends StatefulWidget {
+  final bool? selectedDarkLight;
   const SplashView({
     super.key,
+    this.selectedDarkLight = false,
   });
 
   @override
@@ -25,15 +26,13 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = Theme.of(context);
     return Scaffold(
-      backgroundColor: themeData.colorScheme.onSurface,
+      backgroundColor:
+          widget.selectedDarkLight! ? AppColors.gery7 : AppColors.gery1,
       body: Center(
-        child: LottieBuilder.asset(
-          Assets.jsonimages.animation1,
-          width: 200,
-          height: 200,
-        ),
+        child: widget.selectedDarkLight!
+            ? Assets.images.logoWhite.image()
+            : Assets.images.logoDark.image(),
       ),
     );
   }
