@@ -3,5 +3,5 @@ import 'package:get/get.dart';
 class CustomAppbarController extends GetxController {
   RxInt selectedSection = 0.obs;
   RxBool modeCurrent = false.obs;
-  int selectedLDMode = 0;
+  RxInt selectedLDMode = 0.obs;
 }

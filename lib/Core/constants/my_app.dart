@@ -20,15 +20,21 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     AppSize().init(context);
     AppSize().appSectionsPercent();
-    return GetMaterialApp(
-      locale: const Locale('fa'),
-      debugShowCheckedModeBanner: false,
-      theme: customAppBarClr.selectedLDMode == 0
-          ? myAppThemeIns.darkTheme()
-          : myAppThemeIns.lightTheme(),
-      darkTheme: myAppThemeIns.darkTheme(),
-      initialRoute: AppRoute.splashScreen,
-      getPages: AppRoute.routes,
+    return GetBuilder<CustomAppbarController>(
+      init: CustomAppbarController(),
+      initState: (_) {},
+      builder: (_) {
+        return GetMaterialApp(
+          locale: const Locale('fa'),
+          debugShowCheckedModeBanner: false,
+          theme: _.selectedLDMode.value == 0
+              ? myAppThemeIns.darkTheme()
+              : myAppThemeIns.lightTheme(),
+          darkTheme: myAppThemeIns.darkTheme(),
+          initialRoute: AppRoute.splashScreen,
+          getPages: AppRoute.routes,
+        );
+      },
     );
   }
 }

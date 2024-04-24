@@ -23,11 +23,11 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
   Widget build(BuildContext context) {
     return Center(
       child: AnimatedToggleSwitch<int?>.rolling(
-        current: customAppBarClr.selectedLDMode,
+        current: customAppBarClr.selectedLDMode.value,
         allowUnlistedValues: true,
         values: const [0, 1],
         onChanged: (i) => setState(() {
-          customAppBarClr.selectedLDMode = int.parse(i.toString());
+          customAppBarClr.selectedLDMode.value = int.parse(i.toString());
           convertValue(int.parse(i.toString()));
           Get.changeTheme(int.parse(i.toString()) == 0
               ? MyAppTheme().darkTheme()

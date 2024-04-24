@@ -99,213 +99,184 @@ class ProbabilityStatisticsView extends StatelessWidget {
               decoration:
                   const BoxDecoration(gradient: AppColors.gradientColor),
             ),
-            SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(AppSize.boardButtonsPadding),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5, right: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              probabilityControl.backSpace();
-                            },
-                            child: const RotatedBox(
-                                quarterTurns: 2,
-                                child: Icon(
-                                  Icons.backspace_outlined,
-                                  size: 35,
-                                )),
-                          ),
-                        ],
-                      ),
+            Padding(
+              padding: EdgeInsets.all(AppSize.boardButtonsPadding),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 5, right: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            probabilityControl.backSpace();
+                          },
+                          child: const RotatedBox(
+                              quarterTurns: 2,
+                              child: Icon(
+                                Icons.backspace_outlined,
+                                size: 35,
+                              )),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: AppSize.boardButtonsHistoryCleanPad,
-                    ),
-                    SizedBox(
-                      height: AppSize.boardButtonsNumOprH,
-                      width: AppSize.boardButtonsNumOprW,
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                name: '9',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                rightPad: AppSize.paddingButtonsW,
-                                name: '8',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                rightPad: AppSize.paddingButtonsW,
-                                name: '7',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                name: '6',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                rightPad: AppSize.paddingButtonsW,
-                                name: '5',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                rightPad: AppSize.paddingButtonsW,
-                                name: '4',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                name: '3',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                rightPad: AppSize.paddingButtonsW,
-                                name: '2',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                rightPad: AppSize.paddingButtonsW,
-                                name: '1',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              CustomButtons(
-                                bottomPad: AppSize.paddingButtonsH,
-                                name: '.',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                              CustomButtons(
-                                rightPad: AppSize.paddingButtonsW,
-                                bottomPad: AppSize.paddingButtonsH,
-                                name: '0',
-                                backgroundColor:
-                                    themedata.colorScheme.onSurface,
-                                textColor: themedata.colorScheme.surface,
-                                customWidth: AppSize.bigButtonsSizeW,
-                                controller: probabilityControl.textController,
-                                onTapPos: (value) {
-                                  probabilityControl.numberButtons(value);
-                                },
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              CustomButtons(
-                                name: 'ثبت',
-                                backgroundGradient: AppColors.gradientColor,
-                                textColor: themedata.colorScheme.onError,
-                                controller: probabilityControl.textController,
-                                onTapPosVoid: () {
-                                  if (probabilityControl
-                                      .textController.text.isNotEmpty) {
-                                    if (probabilityControl
-                                            .textController.text !=
-                                        '0.') {
-                                      probabilityControl.addDataButton();
-                                    } else {
-                                      Get.snackbar(
-                                        '',
-                                        '',
-                                        titleText: Text(homePageStr[6],
-                                            style: MyAppTextStyle.getBold(
-                                                color: themedata
-                                                    .colorScheme.surface,
-                                                fontSize: 23)),
-                                        messageText: Text(homePageStr[5],
-                                            style: MyAppTextStyle.getBold(
-                                                color: themedata
-                                                    .colorScheme.surface,
-                                                fontSize: 22)),
-                                      );
-                                    }
+                  ),
+                  SizedBox(
+                    height: AppSize.boardButtonsHistoryCleanPad,
+                  ),
+                  SizedBox(
+                    height: AppSize.boardButtonsNumOprH,
+                    width: AppSize.boardButtonsNumOprW,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              name: '9',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              rightPad: AppSize.paddingButtonsW,
+                              name: '8',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              rightPad: AppSize.paddingButtonsW,
+                              name: '7',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              name: '6',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              rightPad: AppSize.paddingButtonsW,
+                              name: '5',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              rightPad: AppSize.paddingButtonsW,
+                              name: '4',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              name: '3',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              rightPad: AppSize.paddingButtonsW,
+                              name: '2',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              rightPad: AppSize.paddingButtonsW,
+                              name: '1',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            CustomButtons(
+                              bottomPad: AppSize.paddingButtonsH,
+                              name: '.',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                            CustomButtons(
+                              rightPad: AppSize.paddingButtonsW,
+                              bottomPad: AppSize.paddingButtonsH,
+                              name: '0',
+                              backgroundColor: themedata.colorScheme.onSurface,
+                              textColor: themedata.colorScheme.surface,
+                              customWidth: AppSize.bigButtonsSizeW,
+                              controller: probabilityControl.textController,
+                              onTapPos: (value) {
+                                probabilityControl.numberButtons(value);
+                              },
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            CustomButtons(
+                              name: 'ثبت',
+                              backgroundGradient: AppColors.gradientColor,
+                              textColor: themedata.colorScheme.onError,
+                              controller: probabilityControl.textController,
+                              onTapPosVoid: () {
+                                if (probabilityControl
+                                    .textController.text.isNotEmpty) {
+                                  if (probabilityControl.textController.text !=
+                                      '0.') {
+                                    probabilityControl.addDataButton();
                                   } else {
                                     Get.snackbar(
                                       '',
@@ -315,60 +286,74 @@ class ProbabilityStatisticsView extends StatelessWidget {
                                               color:
                                                   themedata.colorScheme.surface,
                                               fontSize: 23)),
-                                      messageText: Text(homePageStr[4],
+                                      messageText: Text(homePageStr[5],
                                           style: MyAppTextStyle.getBold(
                                               color:
                                                   themedata.colorScheme.surface,
                                               fontSize: 22)),
                                     );
                                   }
-                                },
-                              ),
-                              CustomButtons(
-                                  rightPad: AppSize.paddingButtonsW,
-                                  name: 'محاسبه',
-                                  backgroundColor:
-                                      themedata.secondaryHeaderColor,
-                                  textColor: themedata.colorScheme.surface,
-                                  controller: probabilityControl.textController,
-                                  onTapPosVoid: () {
-                                    if (probabilityControl.numberData.value ==
-                                        0) {
-                                      Get.snackbar(
-                                        '',
-                                        '',
-                                        titleText: Text(homePageStr[6],
-                                            style: MyAppTextStyle.getBold(
-                                                color: themedata
-                                                    .colorScheme.surface,
-                                                fontSize: 23)),
-                                        messageText: Text(homePageStr[3],
-                                            style: MyAppTextStyle.getBold(
-                                                color: themedata
-                                                    .colorScheme.surface,
-                                                fontSize: 22)),
-                                      );
-                                    } else {
-                                      probabilityControl.resulltButton();
-                                    }
-                                  }),
-                              CustomButtons(
+                                } else {
+                                  Get.snackbar(
+                                    '',
+                                    '',
+                                    titleText: Text(homePageStr[6],
+                                        style: MyAppTextStyle.getBold(
+                                            color:
+                                                themedata.colorScheme.surface,
+                                            fontSize: 23)),
+                                    messageText: Text(homePageStr[4],
+                                        style: MyAppTextStyle.getBold(
+                                            color:
+                                                themedata.colorScheme.surface,
+                                            fontSize: 22)),
+                                  );
+                                }
+                              },
+                            ),
+                            CustomButtons(
                                 rightPad: AppSize.paddingButtonsW,
-                                name: 'حذف کل',
+                                name: 'محاسبه',
                                 backgroundColor: themedata.secondaryHeaderColor,
                                 textColor: themedata.colorScheme.surface,
                                 controller: probabilityControl.textController,
                                 onTapPosVoid: () {
-                                  probabilityControl.clearButton();
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                                  if (probabilityControl.numberData.value ==
+                                      0) {
+                                    Get.snackbar(
+                                      '',
+                                      '',
+                                      titleText: Text(homePageStr[6],
+                                          style: MyAppTextStyle.getBold(
+                                              color:
+                                                  themedata.colorScheme.surface,
+                                              fontSize: 23)),
+                                      messageText: Text(homePageStr[3],
+                                          style: MyAppTextStyle.getBold(
+                                              color:
+                                                  themedata.colorScheme.surface,
+                                              fontSize: 22)),
+                                    );
+                                  } else {
+                                    probabilityControl.resulltButton();
+                                  }
+                                }),
+                            CustomButtons(
+                              rightPad: AppSize.paddingButtonsW,
+                              name: 'حذف کل',
+                              backgroundColor: themedata.secondaryHeaderColor,
+                              textColor: themedata.colorScheme.surface,
+                              controller: probabilityControl.textController,
+                              onTapPosVoid: () {
+                                probabilityControl.clearButton();
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ]),
@@ -406,111 +391,113 @@ class ResultView extends StatelessWidget {
       'درصد فراوانی تجمعی',
       'جدول فراوانی',
     ];
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      scrollDirection: Axis.vertical,
-      child: Center(
-        child: Column(
-          children: [
-            Container(
-              height: (AppSize.boardInputDate + AppSize.boardButtons) / 2.3,
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.vertical,
+    return SizedBox(
+      width: AppSize.setFullsizeHeight,
+      child: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Container(
+                height: (AppSize.boardInputDate + AppSize.boardButtons) / 2.3,
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    child: CustomDataTable(
-                      columnName: columnName,
-                      rowName: probabilityControl.arryDatatable,
-                      probabilityControl: probabilityControl,
-                      probabilityModel: probabilityModel,
-                    )),
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      child: CustomDataTable(
+                        columnName: columnName,
+                        rowName: probabilityControl.arryDatatable,
+                        probabilityControl: probabilityControl,
+                        probabilityModel: probabilityModel,
+                      )),
+                ),
               ),
-            ),
-            Container(
-              height: AppSize.boardButtons / 1.37,
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              margin: const EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(resultFeildName[0],
-                            style: MyAppTextStyle.getBold(
-                                color: themedata.colorScheme.onSecondary,
-                                fontSize: 20)),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                            height: AppSize.boardButtons / 1.57,
-                            width: AppSize.setFullsizeWidth / 2.6,
-                            padding: const EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(10)),
-                                border: Border.all(
-                                    color: themedata.colorScheme.onPrimary,
-                                    width: 2)),
-                            child: CustomListBox(
-                              probabilityModel: probabilityModel,
+              Container(
+                height: AppSize.boardButtons / 1.37,
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                margin: const EdgeInsets.only(top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(resultFeildName[0],
+                              style: MyAppTextStyle.getBold(
+                                  color: themedata.colorScheme.onSecondary,
+                                  fontSize: 20)),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                              height: AppSize.boardButtons / 1.57,
+                              width: AppSize.setFullsizeWidth / 2.6,
+                              padding: const EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                  border: Border.all(
+                                      color: themedata.colorScheme.onPrimary,
+                                      width: 2)),
+                              child: CustomListBox(
+                                probabilityModel: probabilityModel,
+                                probabilityControl: probabilityControl,
+                                listValue:
+                                    ProbabilityStatisticsModel.arryListBox,
+                              )),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CustomResultView(
                               probabilityControl: probabilityControl,
-                              listValue: ProbabilityStatisticsModel.arryListBox,
-                            )),
-                      ],
-                    ),
-                  ),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CustomResultView(
-                            probabilityControl: probabilityControl,
-                            probabilityModel: probabilityModel,
-                            nameField: resultFeildName[1],
-                            viewValue: probabilityControl.R.toString()),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        CustomResultView(
-                            probabilityControl: probabilityControl,
-                            probabilityModel: probabilityModel,
-                            nameField: resultFeildName[2],
-                            viewValue: probabilityControl.L.toString()),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        CustomResultView(
-                            probabilityControl: probabilityControl,
-                            probabilityModel: probabilityModel,
-                            nameField: resultFeildName[3],
-                            viewValue: probabilityControl.K.toString()),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CustomButtons(
-                          name: resultFeildName[4],
-                          backgroundGradient: AppColors.gradientColor,
-                          textColor: themedata.colorScheme.onError,
-                          controller: ProbabilityStatisticsView
-                              .probabilityControl.textController,
-                          onTapPosVoid: () {
-                            probabilityControl.clearButton();
-                            probabilityControl.showResultPage.value = false;
-                          },
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
+                              probabilityModel: probabilityModel,
+                              nameField: resultFeildName[1],
+                              viewValue: probabilityControl.R.toString()),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          CustomResultView(
+                              probabilityControl: probabilityControl,
+                              probabilityModel: probabilityModel,
+                              nameField: resultFeildName[2],
+                              viewValue: probabilityControl.L.toString()),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          CustomResultView(
+                              probabilityControl: probabilityControl,
+                              probabilityModel: probabilityModel,
+                              nameField: resultFeildName[3],
+                              viewValue: probabilityControl.K.toString()),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CustomButtons(
+                            name: resultFeildName[4],
+                            backgroundGradient: AppColors.gradientColor,
+                            textColor: themedata.colorScheme.onError,
+                            controller: ProbabilityStatisticsView
+                                .probabilityControl.textController,
+                            onTapPosVoid: () {
+                              probabilityControl.clearButton();
+                              probabilityControl.showResultPage.value = false;
+                            },
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

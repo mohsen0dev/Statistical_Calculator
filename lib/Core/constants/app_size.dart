@@ -9,7 +9,7 @@ class AppSize {
   static const double borderRadiusButtonShowHistory = 7;
   static const double borderRadiusButtonClearHistory = 28;
   static const double borderRadiusresultButton = 16;
-  static const double textSizeBoldButtom = 29;
+  static const double textSizeBoldButtom = 24;
   static const double textSizeMedium = 16;
   static const double dividerGeradientHeight = 10;
   static double appBarHeight = 0;
@@ -42,7 +42,7 @@ class AppSize {
   void appSectionsPercent() {
     appBarHeight = setFullsizeHeight * 0.090;
     boardInputDate = setFullsizeHeight * (23.1 / 100);
-    boardButtons = (setFullsizeHeight * (67.75 / 100)) - 34.5;
+    boardButtons = (setFullsizeHeight * (67.75 / 100));
     appBarTitle = appBarHeight * (57.35 / 100);
     appBarPadding = appBarHeight * 0.0854;
     appBarMiniBoard = appBarHeight * (31.71 / 100);
@@ -71,7 +71,7 @@ class AppSize {
   List<double> init(BuildContext context) {
     textScaleFactor = MediaQuery.of(context).textScaleFactor;
     setFullsizeWidth = MediaQuery.of(context).size.width;
-    setFullsizeHeight = MediaQuery.of(context).size.height;
+    setFullsizeHeight = MediaQuery.of(context).size.height - 60;
     appSectionsPercent();
     return [textScaleFactor, setFullsizeHeight, setFullsizeHeight];
   }
