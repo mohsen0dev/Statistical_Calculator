@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 import 'package:simple_statistical_calculator/Core/constants/route_app.dart';
 import 'package:simple_statistical_calculator/Core/gen/assets.gen.dart';
 

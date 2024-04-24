@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
     final numberMode = await SharedPreferences.getInstance();
     int? storedMode = numberMode.getInt('mode');
     storedMode ??= 0;
-    customAppBarClr.selectedLDMode = int.parse(storedMode.toString()) ?? 0;
+    customAppBarClr.selectedLDMode = int.parse(storedMode.toString());
   }
 
   @override

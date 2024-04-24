@@ -3,15 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_text_style.dart';
 
 class CustomTextBox extends StatelessWidget {
-  CustomTextBox({
+  const CustomTextBox({
     required this.controller,
     this.widthSize,
     this.heightSize,
     super.key,
   });
-  TextEditingController? controller;
-  double? widthSize;
-  double? heightSize;
+  final TextEditingController? controller;
+  final double? widthSize;
+  final double? heightSize;
   @override
   Widget build(BuildContext context) {
     final themedata = Theme.of(context);
