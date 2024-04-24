@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_size.dart';
 import 'package:simple_statistical_calculator/Core/constants/route_app.dart';
 import 'package:simple_statistical_calculator/Core/themes/themes.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_statistical_calculator/Core/widgets/controller/custom_appbar_controller.dart';
 
 class MyApp extends StatefulWidget {
