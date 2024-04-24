@@ -81,7 +81,7 @@ class AppbarCustomSelection extends StatelessWidget {
                       textScaler: TextScaler.linear(AppSize.textScaleFactor),
                       style: MyAppTextStyle.getBold(
                           color: themedata.colorScheme.onBackground,
-                          fontSize: 17)),
+                          fontSize: 15)),
                 ),
                 Row(
                   children: [

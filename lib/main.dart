@@ -14,7 +14,7 @@ Future<void> _loadThemeMode() async {
   final numberMode = await SharedPreferences.getInstance();
   int? storedMode = numberMode.getInt('mode');
   storedMode ??= 0;
-  customAppBarClr.selectedLDMode = storedMode;
+  customAppBarClr.selectedLDMode.value = storedMode;
   if (storedMode == 0) {
     customAppBarClr.modeCurrent.value = false;
   } else {
