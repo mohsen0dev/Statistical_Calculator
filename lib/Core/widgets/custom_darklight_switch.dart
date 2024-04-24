@@ -13,6 +13,13 @@ class SwitchDarkLight extends StatefulWidget {
 }
 
 class _SwitchDarkLightState extends State<SwitchDarkLight> {
+  @override
+  void initState() {
+    super.initState();
+    convertValue(CustomAppbarController().selectedLDMode);
+  }
+
+  int modeCurrent = CustomAppbarController().selectedLDMode;
   final customAppBarClr = Get.put(CustomAppbarController());
   Future<void> _saveThemeMode(int themeMode) async {
     final numberMode = await SharedPreferences.getInstance();
@@ -23,26 +30,25 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
   Widget build(BuildContext context) {
     return Center(
       child: AnimatedToggleSwitch<int?>.rolling(
-        current: customAppBarClr.selectedLDMode,
+        current: modeCurrent,
         allowUnlistedValues: true,
         values: const [0, 1],
         onChanged: (i) => setState(() {
-          customAppBarClr.selectedLDMode = int.parse(i.toString());
-          convertValue(int.parse(i.toString()));
-          Get.changeTheme(int.parse(i.toString()) == 0
+          modeCurrent = int.parse(i.toString());
+          convertValue(modeCurrent);
+          Get.changeTheme(modeCurrent == 0
               ? MyAppTheme().darkTheme()
               : MyAppTheme().lightTheme());
           Get.changeThemeMode(
-              int.parse(i.toString()) == 0 ? ThemeMode.dark : ThemeMode.light);
-          _saveThemeMode(int.parse(i.toString()));
+              modeCurrent == 0 ? ThemeMode.dark : ThemeMode.light);
+          _saveThemeMode(modeCurrent);
+          print('modeCurrent: $modeCurrent');
         }),
         iconBuilder: null,
         borderWidth: 4.5,
         minTouchTargetSize: 10,
         style: ToggleStyle(
-          indicatorColor: customAppBarClr.selectedLDMode == 0
-              ? AppColors.gery1
-              : AppColors.gery6,
+          indicatorColor: modeCurrent == 0 ? AppColors.gery1 : AppColors.gery6,
           backgroundGradient: AppColors.gradientColor,
           borderColor: const Color.fromARGB(0, 226, 198, 198),
         ),
