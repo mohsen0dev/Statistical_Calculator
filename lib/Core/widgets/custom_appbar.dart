@@ -24,18 +24,15 @@ class CustomAppBar extends StatelessWidget {
       width: AppSize.setFullsizeWidth,
       child: AppbarCustomSelection(
         nameSections: nameSections,
-        selectedDarkLight: selectedDarkLight,
       ),
     ));
   }
 }
 
 class AppbarCustomSelection extends StatelessWidget {
-  final bool? selectedDarkLight;
   const AppbarCustomSelection({
     super.key,
     required this.nameSections,
-    this.selectedDarkLight,
   });
   final List<String> nameSections;
   @override
