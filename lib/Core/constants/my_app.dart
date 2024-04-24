@@ -21,6 +21,8 @@ class _MyAppState extends State<MyApp> {
     int? storedMode = numberMode.getInt('mode');
     storedMode ??= 0;
     customAppBarClr.selectedLDMode = int.parse(storedMode.toString());
+    print('storedMode: $storedMode and ${customAppBarClr.selectedLDMode}');
+    customAppBarClr.update();
   }
 
   @override
@@ -28,16 +30,18 @@ class _MyAppState extends State<MyApp> {
     _loadThemeMode();
     AppSize().init(context);
     AppSize().appSectionsPercent();
-    return GetMaterialApp(
-      locale: const Locale('fa'),
-      debugShowCheckedModeBanner: false,
-      theme: myAppThemeIns.lightTheme(),
-      darkTheme: myAppThemeIns.darkTheme(),
-      themeMode: customAppBarClr.selectedLDMode == 0
-          ? ThemeMode.dark
-          : ThemeMode.light,
-      initialRoute: AppRoute.splashScreen,
-      getPages: AppRoute.routes,
-    );
+    return GetBuilder<CustomAppbarController>(builder: (context) {
+      return GetMaterialApp(
+        locale: const Locale('fa'),
+        debugShowCheckedModeBanner: false,
+        theme: myAppThemeIns.lightTheme(),
+        darkTheme: myAppThemeIns.darkTheme(),
+        themeMode: customAppBarClr.selectedLDMode == 0
+            ? ThemeMode.dark
+            : ThemeMode.light,
+        initialRoute: AppRoute.splashScreen,
+        getPages: AppRoute.routes,
+      );
+    });
   }
 }

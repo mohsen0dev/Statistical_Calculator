@@ -42,6 +42,7 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
           Get.changeThemeMode(
               modeCurrent == 0 ? ThemeMode.dark : ThemeMode.light);
           _saveThemeMode(modeCurrent);
+          print('modeCurrent: $modeCurrent');
         }),
         iconBuilder: null,
         borderWidth: 4.5,
