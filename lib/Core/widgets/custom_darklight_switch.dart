@@ -13,8 +13,6 @@ class SwitchDarkLight extends StatefulWidget {
 }
 
 class _SwitchDarkLightState extends State<SwitchDarkLight> {
-  @override
-  int modeCurrent = 0;
   final customAppBarClr = Get.put(CustomAppbarController());
   Future<void> _saveThemeMode(int themeMode) async {
     final numberMode = await SharedPreferences.getInstance();

@@ -19,7 +19,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     AppSize().init(context);
     AppSize().appSectionsPercent();
-    print('');
     return GetMaterialApp(
       locale: const Locale('fa'),
       debugShowCheckedModeBanner: false,
