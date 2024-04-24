@@ -91,7 +91,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
           color: themedata.primaryColor,
           width: AppSize.setFullsizeWidth,
           height: AppSize.boardButtons,
-          child: Column(children: [
+          child: ListView(children: [
             Container(
               width: AppSize.setFullsizeWidth,
               height: AppSize.dividerGeradientHeight,
