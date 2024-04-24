@@ -8,8 +8,9 @@ import 'package:simple_statistical_calculator/Core/widgets/custom_darklight_swit
 import 'package:simple_statistical_calculator/Core/widgets/custom_shape_circle.dart';
 
 class CustomAppBar extends StatelessWidget {
-  final bool? selectedDarkLight;
-  CustomAppBar({super.key, this.selectedDarkLight = false});
+  CustomAppBar({
+    super.key,
+  });
   final List<String> nameSections = [
     'آمار احتمالات',
     'جدول فراوانی',
@@ -24,18 +25,15 @@ class CustomAppBar extends StatelessWidget {
       width: AppSize.setFullsizeWidth,
       child: AppbarCustomSelection(
         nameSections: nameSections,
-        selectedDarkLight: selectedDarkLight,
       ),
     ));
   }
 }
 
 class AppbarCustomSelection extends StatelessWidget {
-  final bool? selectedDarkLight;
   const AppbarCustomSelection({
     super.key,
     required this.nameSections,
-    this.selectedDarkLight,
   });
   final List<String> nameSections;
   @override
