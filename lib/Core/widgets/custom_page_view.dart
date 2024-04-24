@@ -29,6 +29,7 @@ class CustomPageView extends StatelessWidget {
                   decoration: BoxDecoration(color: backgroundColor),
                   child: const ProbabilityStatisticsView());
             }
+            return null;
             // else if (selectedPosetion == 1) {
             //   return Container(
             //     decoration: BoxDecoration(color: backgroundColor),
