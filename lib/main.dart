@@ -20,4 +20,5 @@ Future<void> _loadThemeMode() async {
   } else {
     customAppBarClr.modeCurrent.value = true;
   }
+  print('');
 }
