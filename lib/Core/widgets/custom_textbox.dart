@@ -23,9 +23,9 @@ class CustomTextBox extends StatelessWidget {
             focusColor: themedata.colorScheme.primary,
             border: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-        autofocus: false,
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            )),
         readOnly: true,
         maxLines: 1,
         textAlign: TextAlign.justify,
