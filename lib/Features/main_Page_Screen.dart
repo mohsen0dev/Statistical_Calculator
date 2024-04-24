@@ -18,6 +18,7 @@ class MainPageScreen extends StatefulWidget {
 class _MainPageScreenState extends State<MainPageScreen> {
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
     return SafeArea(
       child: PopScope(
         canPop: false,
@@ -31,6 +32,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
           }
         },
         child: Scaffold(
+            backgroundColor: themeData.colorScheme.onSurface,
             appBar: const CustomSelectionAppBar(),
             body: Obx(
               () => widget.probabilityControl.showResultPage.value

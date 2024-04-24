@@ -4,7 +4,6 @@ import 'package:simple_statistical_calculator/Core/constants/color_app.dart';
 class MyAppTheme {
   ThemeData darkTheme() {
     return ThemeData(
-      scaffoldBackgroundColor: AppColors.gery1, //
       primaryColor: AppColors.gery2,
       brightness: Brightness.dark,
       iconTheme: const IconThemeData(
@@ -33,7 +32,6 @@ class MyAppTheme {
 
   ThemeData lightTheme() {
     return ThemeData(
-      scaffoldBackgroundColor: AppColors.gery6, //
       primaryColor: AppColors.secondary2,
       brightness: Brightness.light,
       iconTheme:
