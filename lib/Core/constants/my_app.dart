@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
       initState: (_) {},
       builder: (_) {
         return GetMaterialApp(
+          title: 'نمودار فراوانی',
           locale: const Locale('fa'),
           debugShowCheckedModeBanner: false,
           theme: _.selectedLDMode.value == 0

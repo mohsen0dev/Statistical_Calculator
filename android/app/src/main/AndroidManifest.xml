@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="simple_statistical_calculator"
+        android:label="نمودار فراوانی"
         android:name="${applicationName}"
         android:icon="@mipmap/probability_statistics_app">
         <activity
