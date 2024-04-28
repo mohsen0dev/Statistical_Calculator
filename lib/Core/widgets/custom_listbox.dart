@@ -24,7 +24,7 @@ class CustomListBox extends StatelessWidget {
           return Text(
             listValue[index],
             style: MyAppTextStyle.getBold(
-                color: themedata.colorScheme.onSecondary, fontSize: 17.5),
+                color: themedata.colorScheme.onSecondary, fontSize: 18.5),
             textDirection: TextDirection.ltr,
             textAlign: TextAlign.center,
           );

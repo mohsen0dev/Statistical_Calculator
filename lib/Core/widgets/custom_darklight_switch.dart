@@ -46,7 +46,7 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
           backgroundGradient: AppColors.gradientColor,
           borderColor: const Color.fromARGB(0, 226, 198, 198),
         ),
-        height: 26,
+        height: 28,
         spacing: 10,
         loading: null,
       ),

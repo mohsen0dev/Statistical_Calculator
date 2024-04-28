@@ -6,6 +6,7 @@ class CustomButtons extends StatelessWidget {
   final String name;
   final Color? backgroundColor;
   final double? customWidth;
+  final double? textSize;
   final Gradient? backgroundGradient;
   final Color textColor;
   final double bottomPad;
@@ -29,7 +30,8 @@ class CustomButtons extends StatelessWidget {
       required this.controller,
       this.onTapPos,
       this.onTapPosVoid,
-      this.customWidth});
+      this.customWidth,
+      this.textSize});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +62,7 @@ class CustomButtons extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: MyAppTextStyle.getBold(
                         color: textColor,
-                        fontSize: AppSize.textSizeBoldButtom)),
+                        fontSize: textSize ?? AppSize.textSizeBoldButtom)),
               ),
             )));
   }

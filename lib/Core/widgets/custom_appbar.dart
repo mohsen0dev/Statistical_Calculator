@@ -56,7 +56,7 @@ class AppbarCustomSelection extends StatelessWidget {
               children: [
                 Text(nameSections[0],
                     style: MyAppTextStyle.getBold(
-                        color: themedata.colorScheme.onError, fontSize: 19.5)),
+                        color: themedata.colorScheme.onError, fontSize: 20.5)),
                 const CustomShapeCircle(),
               ],
             ),
@@ -79,7 +79,7 @@ class AppbarCustomSelection extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: MyAppTextStyle.getBold(
                           color: themedata.colorScheme.onBackground,
-                          fontSize: 14)),
+                          fontSize: 14.5)),
                 ),
                 Row(
                   children: [
@@ -89,7 +89,7 @@ class AppbarCustomSelection extends StatelessWidget {
                             ? nameSections[2]
                             : nameSections[3],
                         style: MyAppTextStyle.getBold(
-                            color: AppColors.gery5, fontSize: 13.5),
+                            color: AppColors.gery5, fontSize: 14.5),
                       ),
                     ),
                     const SizedBox(

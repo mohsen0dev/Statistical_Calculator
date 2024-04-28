@@ -23,24 +23,26 @@ class CustomResultView extends StatelessWidget {
       children: [
         Text(nameField,
             style: MyAppTextStyle.getBold(
-                color: themedata.colorScheme.onSecondary, fontSize: 17.5)),
+                color: themedata.colorScheme.onSecondary, fontSize: 18.5)),
         const SizedBox(
           height: 10,
         ),
         Container(
-          height: AppSize.boardButtons / 14.5,
+          height: AppSize.boardButtons / 14,
           width: AppSize.setFullsizeWidth / 2.6,
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               border:
                   Border.all(color: themedata.colorScheme.onPrimary, width: 2)),
-          child: Text(
-            viewValue,
-            style: MyAppTextStyle.getBold(
-                color: themedata.colorScheme.onSecondary, fontSize: 17.5),
-            textDirection: TextDirection.ltr,
-            textAlign: TextAlign.center,
+          child: Center(
+            child: Text(
+              viewValue,
+              style: MyAppTextStyle.getBold(
+                  color: themedata.colorScheme.onSecondary, fontSize: 18.5),
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.center,
+            ),
           ),
         )
       ],
