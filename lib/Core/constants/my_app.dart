@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
     AppSize().init(context);
     AppSize().appSectionsPercent();
     return Obx(() => GetMaterialApp(
-          title: 'نمودار فراوانی',
+          title: 'جدول فراوانی',
           locale: const Locale('fa'),
           debugShowCheckedModeBanner: false,
           theme: customAppBarClr.selectedLDMode.value == 0
