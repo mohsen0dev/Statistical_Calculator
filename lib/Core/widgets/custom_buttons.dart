@@ -58,7 +58,6 @@ class CustomButtons extends StatelessWidget {
               child: Center(
                 child: Text(name,
                     textAlign: TextAlign.center,
-                    textScaler: TextScaler.linear(AppSize.textScaleFactor),
                     style: MyAppTextStyle.getBold(
                         color: textColor,
                         fontSize: AppSize.textSizeBoldButtom)),

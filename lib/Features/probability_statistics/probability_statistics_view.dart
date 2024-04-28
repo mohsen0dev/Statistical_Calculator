@@ -41,9 +41,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
                 children: [
                   Text(
                     homePageStr[0],
-                    textScaler: TextScaler.linear(AppSize.textScaleFactor),
                     style: MyAppTextStyle.getBold(
-                        color: themedata.colorScheme.error, fontSize: 25),
+                        color: themedata.colorScheme.error, fontSize: 22.5),
                   ),
                   const SizedBox(
                     width: 10,
@@ -63,12 +62,12 @@ class ProbabilityStatisticsView extends StatelessWidget {
                     message: homePageStr[1],
                     decoration: BoxDecoration(color: themedata.iconTheme.color),
                     textStyle: MyAppTextStyle.getBold(
-                        color: AppColors.gery6, fontSize: 20),
+                        color: AppColors.gery6, fontSize: 18.5),
                     showDuration: const Duration(seconds: 3),
                     triggerMode: TooltipTriggerMode.tap,
                     child: Icon(
                       Icons.info_outline_rounded,
-                      size: 30,
+                      size: 27,
                       color: themedata.iconTheme.color,
                     ),
                   ),
@@ -79,9 +78,8 @@ class ProbabilityStatisticsView extends StatelessWidget {
               ),
               Obx(() => Text(
                     '${probabilityControl.numberData} ' '${homePageStr[2]}',
-                    textScaler: TextScaler.linear(AppSize.textScaleFactor),
                     style: MyAppTextStyle.getBold(
-                        color: themedata.colorScheme.error, fontSize: 25),
+                        color: themedata.colorScheme.error, fontSize: 22.5),
                   )),
             ],
           ),
@@ -116,7 +114,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               quarterTurns: 2,
                               child: Icon(
                                 Icons.backspace_outlined,
-                                size: 35,
+                                size: 32,
                               )),
                         ),
                       ],
@@ -285,12 +283,12 @@ class ProbabilityStatisticsView extends StatelessWidget {
                                           style: MyAppTextStyle.getBold(
                                               color:
                                                   themedata.colorScheme.surface,
-                                              fontSize: 23)),
+                                              fontSize: 20)),
                                       messageText: Text(homePageStr[5],
                                           style: MyAppTextStyle.getBold(
                                               color:
                                                   themedata.colorScheme.surface,
-                                              fontSize: 22)),
+                                              fontSize: 19)),
                                     );
                                   }
                                 } else {
@@ -301,12 +299,12 @@ class ProbabilityStatisticsView extends StatelessWidget {
                                         style: MyAppTextStyle.getBold(
                                             color:
                                                 themedata.colorScheme.surface,
-                                            fontSize: 23)),
+                                            fontSize: 20)),
                                     messageText: Text(homePageStr[4],
                                         style: MyAppTextStyle.getBold(
                                             color:
                                                 themedata.colorScheme.surface,
-                                            fontSize: 22)),
+                                            fontSize: 19)),
                                   );
                                 }
                               },
@@ -327,12 +325,12 @@ class ProbabilityStatisticsView extends StatelessWidget {
                                           style: MyAppTextStyle.getBold(
                                               color:
                                                   themedata.colorScheme.surface,
-                                              fontSize: 23)),
+                                              fontSize: 20)),
                                       messageText: Text(homePageStr[3],
                                           style: MyAppTextStyle.getBold(
                                               color:
                                                   themedata.colorScheme.surface,
-                                              fontSize: 22)),
+                                              fontSize: 19)),
                                     );
                                   } else {
                                     probabilityControl.resulltButton();
@@ -428,7 +426,7 @@ class ResultView extends StatelessWidget {
                           Text(resultFeildName[0],
                               style: MyAppTextStyle.getBold(
                                   color: themedata.colorScheme.onSecondary,
-                                  fontSize: 20)),
+                                  fontSize: 17.5)),
                           const SizedBox(
                             height: 10,
                           ),

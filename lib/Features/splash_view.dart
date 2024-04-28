@@ -16,6 +16,7 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  final customAppBarClr = Get.put(CustomAppbarController());
   @override
   void initState() {
     super.initState();
@@ -26,12 +27,8 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CustomAppbarController>(
-      init: CustomAppbarController(),
-      initState: (_) {},
-      builder: (_) {
-        return Scaffold(
-          backgroundColor: _.selectedLDMode.value == 0
+    return Obx(() => Scaffold(
+          backgroundColor: customAppBarClr.selectedLDMode.value == 0
               ? MyAppTheme().darkTheme().colorScheme.onSurface
               : MyAppTheme().lightTheme().colorScheme.onSurface,
           body: Center(
@@ -41,8 +38,6 @@ class _SplashViewState extends State<SplashView> {
               height: 200,
             ),
           ),
-        );
-      },
-    );
+        ));
   }
 }

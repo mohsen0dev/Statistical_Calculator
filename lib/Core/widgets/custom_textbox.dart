@@ -31,7 +31,7 @@ class CustomTextBox extends StatelessWidget {
         textAlign: TextAlign.justify,
         textDirection: TextDirection.ltr,
         style: MyAppTextStyle.getBold(
-            color: themedata.colorScheme.surface, fontSize: 25),
+            color: themedata.colorScheme.surface, fontSize: 22),
         controller: controller,
         inputFormatters: [
           FilteringTextInputFormatter.deny(
