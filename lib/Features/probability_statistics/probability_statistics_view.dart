@@ -127,12 +127,15 @@ class ProbabilityStatisticsView extends StatelessWidget {
                     height: AppSize.boardButtonsNumOprH,
                     width: AppSize.boardButtonsNumOprW,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Row(
                           children: [
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '9',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -144,6 +147,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '8',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -155,6 +159,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '7',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -169,6 +174,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '6',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -180,6 +186,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '5',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -191,6 +198,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '4',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -205,6 +213,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '3',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -216,6 +225,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '2',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -227,6 +237,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               bottomPad: AppSize.paddingButtonsH,
                               rightPad: AppSize.paddingButtonsW,
                               name: '1',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -241,6 +252,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                             CustomButtons(
                               bottomPad: AppSize.paddingButtonsH,
                               name: '.',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               controller: probabilityControl.textController,
@@ -252,6 +264,7 @@ class ProbabilityStatisticsView extends StatelessWidget {
                               rightPad: AppSize.paddingButtonsW,
                               bottomPad: AppSize.paddingButtonsH,
                               name: '0',
+                              textSize: 24,
                               backgroundColor: themedata.colorScheme.onSurface,
                               textColor: themedata.colorScheme.surface,
                               customWidth: AppSize.bigButtonsSizeW,
@@ -426,7 +439,7 @@ class ResultView extends StatelessWidget {
                           Text(resultFeildName[0],
                               style: MyAppTextStyle.getBold(
                                   color: themedata.colorScheme.onSecondary,
-                                  fontSize: 17.5)),
+                                  fontSize: 18.5)),
                           const SizedBox(
                             height: 10,
                           ),

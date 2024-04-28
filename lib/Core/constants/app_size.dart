@@ -54,7 +54,7 @@ class AppSize {
     boardButtonsHistoryCleanPad = boardResultButtonsH * 0.0400;
     boardButtonsNumOprH = boardResultButtonsH * (85.18 / 100);
     boardButtonsNumOprW = boardResultButtonsW;
-    buttonsSizeH = boardButtonsNumOprH * (18.0 / 100);
+    buttonsSizeH = boardButtonsNumOprH * (18.1 / 100);
     buttonsSizeW = boardButtonsNumOprW * (30.8 / 100);
     bigButtonsSizeW = boardButtonsNumOprW * (65.3 / 100);
     paddingButtonsH = boardButtonsNumOprH * 0.02342;
@@ -70,7 +70,7 @@ class AppSize {
 
   List<double> init(BuildContext context) {
     setFullsizeWidth = MediaQuery.of(context).size.width;
-    setFullsizeHeight = MediaQuery.of(context).size.height - 60;
+    setFullsizeHeight = MediaQuery.of(context).size.height;
     appSectionsPercent();
     return [textScaleFactor, setFullsizeHeight, setFullsizeHeight];
   }
