@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_statistical_calculator/Core/gen/fonts.gen.dart';
 
 abstract class FontManager {
-  static const String fontFamilyEn = FontFamily.inter;
+  static const String fontFamilyEn = FontFamily.vazirmatn;
   static const FontWeight semiBold = FontWeight.w600;
   static const FontWeight bold = FontWeight.w700;
   static const FontWeight medium = FontWeight.w500;
@@ -11,7 +11,7 @@ abstract class FontManager {
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(
       fontSize: fontSize,
-      fontFamily: FontFamily.inter,
+      fontFamily: FontFamily.vazirmatn,
       fontWeight: fontWeight,
       color: color);
 }

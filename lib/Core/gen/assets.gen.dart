@@ -9,6 +9,23 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Vazirmatn-Bold.ttf
+  String get vazirmatnBold => 'assets/fonts/Vazirmatn-Bold.ttf';
+
+  /// File path: assets/fonts/Vazirmatn-Medium.ttf
+  String get vazirmatnMedium => 'assets/fonts/Vazirmatn-Medium.ttf';
+
+  /// File path: assets/fonts/Vazirmatn-SemiBold.ttf
+  String get vazirmatnSemiBold => 'assets/fonts/Vazirmatn-SemiBold.ttf';
+
+  /// List of all assets
+  List<String> get values =>
+      [vazirmatnBold, vazirmatnMedium, vazirmatnSemiBold];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -37,6 +54,7 @@ class $AssetsJsonimagesGen {
 class Assets {
   Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsJsonimagesGen jsonimages = $AssetsJsonimagesGen();
 }
