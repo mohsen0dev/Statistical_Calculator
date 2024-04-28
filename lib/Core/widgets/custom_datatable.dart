@@ -22,12 +22,12 @@ class CustomDataTable extends StatelessWidget {
         horizontalMargin: 20,
         dividerThickness: 2,
         headingTextStyle: MyAppTextStyle.getBold(
-            color: themedata.colorScheme.onSecondary, fontSize: 17),
+            color: themedata.colorScheme.onSecondary, fontSize: 15),
         columnSpacing: 35,
         dataRowColor:
             MaterialStatePropertyAll(themedata.colorScheme.background),
         dataTextStyle: MyAppTextStyle.getBold(
-            color: themedata.colorScheme.onSecondary, fontSize: 17),
+            color: themedata.colorScheme.onSecondary, fontSize: 15),
         columns: [
           DataColumn(
               label: Text(

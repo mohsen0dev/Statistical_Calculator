@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:simple_statistical_calculator/Core/constants/app_size.dart';
 import 'package:simple_statistical_calculator/Core/gen/fonts.gen.dart';
 
 abstract class FontManager {
@@ -11,7 +10,7 @@ abstract class FontManager {
 
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(
-      fontSize: fontSize * AppSize.textScaleFactor,
+      fontSize: fontSize,
       fontFamily: FontFamily.inter,
       fontWeight: fontWeight,
       color: color);
