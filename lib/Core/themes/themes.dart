@@ -6,6 +6,10 @@ class MyAppTheme {
     return ThemeData(
       primaryColor: AppColors.gery2,
       brightness: Brightness.dark,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(AppColors.gery1),
+      )),
       iconTheme: const IconThemeData(
           color: AppColors.primary), //tooltip and backspace icon color
       colorScheme: const ColorScheme(
@@ -41,6 +45,10 @@ class MyAppTheme {
         foregroundColor: AppColors.secondary1, //
         centerTitle: true,
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(AppColors.gery6),
+      )),
       secondaryHeaderColor: AppColors.secondary1, //
       colorScheme: const ColorScheme(
           brightness: Brightness.light,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_statistical_calculator/Core/constants/app_size.dart';
 import 'package:simple_statistical_calculator/Core/constants/route_app.dart';
@@ -14,23 +15,31 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int? appVersion;
   final myAppThemeIns = MyAppTheme();
   final customAppBarClr = Get.put(CustomAppbarController());
-  Future<void> _loadThemeMode() async {
+
+  Future<void> _loadData() async {
     final numberMode = await SharedPreferences.getInstance();
-    int? storedMode = numberMode.getInt('mode');
-    storedMode ??= 0;
-    customAppBarClr.selectedLDMode.value = storedMode;
-    if (storedMode == 0) {
+    int? storedThemeMode = numberMode.getInt('thememode');
+    storedThemeMode ??= 0;
+    customAppBarClr.selectedLDMode.value = storedThemeMode;
+    if (storedThemeMode == 0) {
       customAppBarClr.modeCurrent.value = false;
     } else {
       customAppBarClr.modeCurrent.value = true;
     }
   }
 
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    appVersion = int.parse(info.buildNumber);
+  }
+
   @override
   Widget build(BuildContext context) {
-    _loadThemeMode();
+    _initPackageInfo();
+    _loadData();
     AppSize().init(context);
     AppSize().appSectionsPercent();
     return Obx(() => GetMaterialApp(
