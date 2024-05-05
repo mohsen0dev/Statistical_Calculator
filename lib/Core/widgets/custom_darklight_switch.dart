@@ -16,7 +16,7 @@ class _SwitchDarkLightState extends State<SwitchDarkLight> {
   final customAppBarClr = Get.put(CustomAppbarController());
   Future<void> _saveThemeMode(int themeMode) async {
     final numberMode = await SharedPreferences.getInstance();
-    await numberMode.setInt('mode', themeMode);
+    await numberMode.setInt('thememode', themeMode);
   }
 
   @override
