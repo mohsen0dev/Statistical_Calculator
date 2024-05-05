@@ -1,16 +1,16 @@
 # simple_statistical_calculator
+#جدول فراوانی
 
-A new Flutter project.
+نمودار فراوانی یکی از مباحث دروس آمار و احتمالات است.
 
-## Getting Started
+بدلیل پیچیدگی و خسته کننده بودن محاسبات این جدول لازم دانستم تا این جدول را در قالب یک برنامه در دسترس دانش آموزان و دانشجویان قراردهم.
 
-This project is a starting point for a Flutter application.
+کار با این برنامه خیلی ساده است فقط داده ها را با استفاده از کیبورد طراحی شده داخل برنامه نوشته و با زدن دکمه ثبت داده ذخیره می شود پس از وارد کردن همه داده ها با زدن دکمه محاسبه جدول فراوانی داده های وارد شده کامل محاسبه شده و در خروجی نمایش داده می شود.
 
-A few resources to get you started if this is your first Flutter project:
+#Frequency table
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Frequency chart is one of the subjects of statistics and probability courses.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Due to the complexity and tediousness of the calculations of this table, I found it necessary to make this table available to students in the form of a program.
+
+Working with this program is very simple, just write the data using the keyboard designed inside the program and save it by pressing the data registration button. is displayed in the output.
