@@ -43,7 +43,7 @@ class _ProbabilityStatisticsViewState extends State<ProbabilityStatisticsView> {
     int? storedAppIntent = numberMode.getInt('appintent');
     storedAppIntent ??= 1;
     if (storedAppIntent <= 20) {
-      if (storedAppIntent == 20) {
+      if (storedAppIntent == 1) {
         Future.delayed(Duration.zero, () {
           Get.defaultDialog(
               backgroundColor: context.secondaryHeaderColor,
